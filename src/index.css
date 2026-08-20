@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  /* Architectural Color Tokens */
+  --bg-dark-obsidian: #000000;
+  --bg-dark-slate: #0a0a0a;
+  --bg-dark-surface: #111111;
+  --bg-dark-panel: #161616;
+
+  --border-subtle-grid: rgba(255, 255, 255, 0.1);
+  --border-matte-hairline: rgba(255, 255, 255, 0.2);
+  --border-accent-warm: rgba(255, 255, 255, 0.4);
+
+  --accent-blue: #2563eb;
+  --accent-blue-bright: #3b82f6;
+
+  --text-primary: #ffffff;
+  --text-secondary: #e5e5e5;
+  --text-muted: #a3a3a3;
+
+  --font-dm-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-sans-hub: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-display-hub: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono-hub: 'DM Sans', ui-monospace, SFMono-Regular, monospace;
+
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-dm-sans);
+  --font-mono: var(--font-dm-sans);
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background-color: #030712;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  background-color: transparent !important;
+}
+
+.scroll-animation-shell {
+  isolation: isolate;
+}
+
+.scroll-animation-shell > main > section {
+  position: relative;
+  z-index: 10;
+}
+
+.scroll-animation-shell > main > footer {
+  background-color: rgb(0 0 0 / 0.48) !important;
+}
+
+body::before,
+body::after,
+#root::before,
+#root::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Typography Classes */
+.font-dm {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.font-display {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Plain Black Container */
+.bg-plain-black {
+  background-color: #000000 !important;
+}
+
+/* Futuristic Stencil Style / Bold Headers in DM Sans */
+.font-hero-future {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+/* Hide Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+/* Custom Dropdown Scrollbar */
+.dropdown-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.dropdown-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 4px;
+}
+.dropdown-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.4);
+  border-radius: 4px;
+}
+.dropdown-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.8);
+}
+
+/* Selection */
+::selection {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Infinite Seamless Marquee Animation */
+@keyframes infiniteMarqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infiniteMarqueeScroll 75s linear infinite;
+  will-change: transform;
+}
+
+/* Accessible focus ring */
+*:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}

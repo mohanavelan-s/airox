@@ -1,0 +1,6 @@
+{
+  "name": "AIROX 2026",
+  "description": "Official website of AIROX 2026 National Level Technical Symposium and Department of Artificial Intelligence and Data Science at JJ College of Engineering and Technology.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

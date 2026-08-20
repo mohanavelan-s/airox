@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <!-- Gold Feather Flame Gradients -->
+    <linearGradient id="goldFeatherGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#b45309" />
+      <stop offset="35%" stop-color="#d97706" />
+      <stop offset="70%" stop-color="#f59e0b" />
+      <stop offset="90%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#fffbeb" />
+    </linearGradient>
+
+    <linearGradient id="goldBright" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="50%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+
+    <!-- Deep Metallic Blue Ribbon Gradient -->
+    <linearGradient id="blueSwooshGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="40%" stop-color="#0284c7" />
+      <stop offset="75%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Subtle Radial Core Glow -->
+    <radialGradient id="centerGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.3" />
+      <stop offset="60%" stop-color="#d97706" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background Glow -->
+  <circle cx="300" cy="240" r="220" fill="url(#centerGlow)" />
+
+  <!-- GOLDEN FEATHERED PYRAMID / FLAME WINGS -->
+  <g transform="translate(300, 210)">
+    <!-- Dark Inner Triangle Core -->
+    <polygon points="0,-120 -70,50 70,50" fill="#090a0d" stroke="#f59e0b" stroke-width="1.5" />
+
+    <!-- Left Wing Feather Petals -->
+    <path d="M-70,50 C-95,20 -115,-20 -60,-85 L-48,-40 Z" fill="url(#goldFeatherGrad)" />
+    <path d="M-60,35 C-85,5 -100,-35 -48,-100 L-36,-50 Z" fill="url(#goldFeatherGrad)" />
+    <path d="M-48,20 C-70,-10 -85,-50 -32,-115 L-24,-60 Z" fill="url(#goldFeatherGrad)" />
+    <path d="M-36,5 C-52,-25 -68,-65 -16,-130 L-12,-70 Z" fill="url(#goldFeatherGrad)" />
+
+    <!-- Right Wing Feather Petals -->
+    <path d="M70,50 C95,20 115,-20 60,-85 L48,-40 Z" fill="url(#goldFeatherGrad)" />
+    <path d="M60,35 C85,5 100,-35 48,-100 L36,-50 Z" fill="url(#goldFeatherGrad)" />
+    <path d="M48,20 C70,-10 85,-50 32,-115 L24,-60 Z" fill="url(#goldFeatherGrad)" />
+    <path d="M36,5 C52,-25 68,-65 16,-130 L12,-70 Z" fill="url(#goldFeatherGrad)" />
+
+    <!-- Center Top Apex Flame -->
+    <polygon points="0,-155 -18,-90 18,-90" fill="url(#goldBright)" />
+    <polygon points="0,-170 -10,-110 10,-110" fill="#ffffff" />
+  </g>
+
+  <!-- DYNAMIC BLUE SWOOSH / METALLIC WAVE -->
+  <g transform="translate(300, 310)">
+    <!-- Outer Main Swoosh Ribbon -->
+    <path d="M-260,30 Q-130,-60 0,0 Q130,60 260,-30 Q200,30 0,-20 Q-160,-65 -260,30 Z" fill="url(#blueSwooshGrad)" />
+    
+    <!-- Secondary Bright Aqua Highlight Wave -->
+    <path d="M-220,55 Q-110,-20 10,25 Q130,65 230,-10 Q160,30 10,5 Q-130,-20 -220,55 Z" fill="#38bdf8" opacity="0.8" />
+  </g>
+
+  <!-- AIROX FUTURISTIC LOGO TEXT -->
+  <g transform="translate(300, 480)">
+    <!-- Customized Vector Letters matching the original image -->
+    <text text-anchor="middle" font-family="'Orbitron', 'Syne', 'Arial', sans-serif" font-weight="900" font-size="82" fill="#ffffff" letter-spacing="18">
+      AIROX
+    </text>
+  </g>
+</svg>

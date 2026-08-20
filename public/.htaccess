@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+
+  # Return 404 for obsolete paths or missing static files
+  RewriteCond %{REQUEST_URI} ^/(scroll-frames|api|blog|demo)(/|$) [NC,OR]
+  RewriteCond %{REQUEST_URI} \.(webp|jpg|jpeg|png|gif|svg|ico|mp4|webm|json|css|js|woff|woff2|ttf|eot)$ [NC]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ - [R=404,L]
+
+  # SPA Fallback for normal pages
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

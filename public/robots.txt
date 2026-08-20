@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /register
+
+Disallow: /api/
+Disallow: /blog/
+Disallow: /demo/

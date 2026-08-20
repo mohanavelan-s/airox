@@ -1,0 +1,624 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1130" width="100%" height="100%" style="background:#020612;">
+  <defs>
+    <!-- Background Gradients -->
+    <radialGradient id="bgGlowLeft" cx="10%" cy="35%" r="45%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#0369a1" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#020612" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="bgGlowRight" cx="90%" cy="30%" r="45%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#1d4ed8" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#020612" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="bgGlowCenter" cx="50%" cy="25%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#020612" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- 3D Ice Metallic Gradient for AIROX 2026 -->
+    <linearGradient id="airoxIceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe" />
+      <stop offset="25%" stop-color="#7dd3fc" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="75%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#f472b6" />
+    </linearGradient>
+
+    <!-- Bevel Highlights for 3D Letters -->
+    <linearGradient id="facetTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#bae6fd" stop-opacity="0.3" />
+    </linearGradient>
+    <linearGradient id="facetBottom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#1e1b4b" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Gold Gradient for MR & MS AIROX -->
+    <linearGradient id="goldMetallic" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="30%" stop-color="#eab308" />
+      <stop offset="70%" stop-color="#ca8a04" />
+      <stop offset="100%" stop-color="#fef08a" />
+    </linearGradient>
+
+    <!-- Flame Logo Gradient -->
+    <linearGradient id="flameGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ea580c" />
+      <stop offset="40%" stop-color="#f97316" />
+      <stop offset="75%" stop-color="#facc15" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+
+    <!-- Neon Glow Filters -->
+    <filter id="neonCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="neonPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="titleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#38bdf8" flood-opacity="0.6" />
+      <feDropShadow dx="0" dy="8" stdDeviation="24" flood-color="#c084fc" flood-opacity="0.4" />
+    </filter>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.7" />
+    </filter>
+  </defs>
+
+  <!-- BACKGROUND BASE -->
+  <rect width="1600" height="1130" fill="#020612" />
+  <rect width="1600" height="1130" fill="url(#bgGlowLeft)" />
+  <rect width="1600" height="1130" fill="url(#bgGlowRight)" />
+  <rect width="1600" height="1130" fill="url(#bgGlowCenter)" />
+
+  <!-- TECH SPARKLES & CIRCUIT PARTICLES -->
+  <g opacity="0.4">
+    <!-- Starfield dots -->
+    <circle cx="120" cy="180" r="1.5" fill="#38bdf8" />
+    <circle cx="340" cy="90" r="1" fill="#c084fc" />
+    <circle cx="480" cy="220" r="1.5" fill="#ffffff" />
+    <circle cx="780" cy="80" r="1" fill="#38bdf8" />
+    <circle cx="1120" cy="140" r="1.5" fill="#38bdf8" />
+    <circle cx="1380" cy="90" r="1" fill="#ffffff" />
+    <circle cx="1480" cy="260" r="2" fill="#38bdf8" filter="url(#neonCyan)" />
+    <circle cx="80" cy="650" r="1.5" fill="#38bdf8" />
+    <circle cx="1520" cy="720" r="1.5" fill="#c084fc" />
+    <circle cx="1200" cy="890" r="1" fill="#38bdf8" />
+  </g>
+
+  <!-- ==================== 1. TOP INSTITUTIONAL HEADER ==================== -->
+  
+  <!-- Left AIROX Logo -->
+  <g transform="translate(60, 25)">
+    <!-- Flame triangle emblem -->
+    <path d="M 50 15 L 75 80 L 60 80 L 50 50 L 40 80 L 25 80 Z" fill="url(#flameGrad)" />
+    <path d="M 50 25 L 68 75 L 56 75 L 50 58 L 44 75 L 32 75 Z" fill="#020612" opacity="0.3" />
+    <polygon points="50,12 55,25 45,25" fill="#38bdf8" />
+    <!-- AIROX Text -->
+    <text x="50" y="105" font-family="'Inter', 'Arial Black', sans-serif" font-weight="900" font-size="24" fill="#ffffff" text-anchor="middle" letter-spacing="4">AIROX</text>
+    <text x="50" y="122" font-family="'Inter', sans-serif" font-weight="800" font-size="8.5" fill="#38bdf8" text-anchor="middle" letter-spacing="1.5">AI REPUBLIC OF EXCELLENCE</text>
+  </g>
+
+  <!-- Center JJCET Header & Sowdambikaa Group -->
+  <g transform="translate(460, 22)">
+    <!-- JJCET Torch Shield Emblem -->
+    <circle cx="80" cy="55" r="42" fill="#ffffff" stroke="#ea580c" stroke-width="2" />
+    <path d="M 80 25 Q 92 45 80 65 Q 68 45 80 25 Z" fill="#ef4444" />
+    <path d="M 80 32 Q 87 47 80 60 Q 73 47 80 32 Z" fill="#facc15" />
+    <path d="M 60 62 Q 80 72 100 62" stroke="#1e3a8a" stroke-width="4" fill="none" />
+    <text x="80" y="86" font-family="'Inter', sans-serif" font-size="7.5" font-weight="900" fill="#1e3a8a" text-anchor="middle" letter-spacing="0.5">INNOVATE • TRANSFORM • INSPIRE</text>
+    <text x="80" y="94" font-family="'Inter', sans-serif" font-size="6.5" font-weight="800" fill="#64748b" text-anchor="middle">ESTD. 1994</text>
+
+    <!-- Institution Text -->
+    <g transform="translate(135, 10)">
+      <text x="270" y="32" font-family="'Inter', sans-serif" font-weight="900" font-size="42" fill="#ffffff" text-anchor="middle" letter-spacing="1">J.J. COLLEGE</text>
+      <text x="270" y="58" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#ffffff" text-anchor="middle" letter-spacing="2">OF ENGINEERING AND TECHNOLOGY</text>
+      
+      <!-- Autonomous rule bar -->
+      <line x1="60" y1="74" x2="210" y2="74" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="270" y="77" font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="#f97316" text-anchor="middle" letter-spacing="3">AUTONOMOUS</text>
+      <line x1="330" y1="74" x2="480" y2="74" stroke="#38bdf8" stroke-width="1.5" />
+
+      <!-- Sowdambikaa Group Red Pill -->
+      <rect x="75" y="88" width="390" height="26" rx="4" fill="#dc2626" />
+      <text x="270" y="106" font-family="'Inter', sans-serif" font-weight="900" font-size="13" fill="#ffffff" text-anchor="middle" letter-spacing="2">SOWDAMBIKAA GROUP OF INSTITUTIONS</text>
+    </g>
+  </g>
+
+  <!-- Right ISTE Emblem -->
+  <g transform="translate(1360, 25)">
+    <circle cx="80" cy="50" r="42" fill="#ffffff" stroke="#1e3a8a" stroke-width="2" />
+    <circle cx="80" cy="50" r="32" fill="#1e3a8a" />
+    <circle cx="80" cy="50" r="18" fill="#ffffff" />
+    <path d="M 80 36 L 80 64 M 66 50 L 94 50" stroke="#1e3a8a" stroke-width="3" />
+    <text x="80" y="106" font-family="'Inter', sans-serif" font-weight="800" font-size="10" fill="#ffffff" text-anchor="middle" letter-spacing="1">INDIAN SOCIETY FOR</text>
+    <text x="80" y="120" font-family="'Inter', sans-serif" font-weight="800" font-size="9" fill="#94a3b8" text-anchor="middle" letter-spacing="1">TECHNICAL EDUCATION</text>
+  </g>
+
+  <!-- ==================== 2. MAIN SYMPOSIUM TITLE & DATE ==================== -->
+  
+  <!-- AIROX 2026 Giant 3D Title -->
+  <g transform="translate(800, 240)">
+    <!-- Glow Backdrop -->
+    <text x="0" y="0" font-family="'Inter', 'Arial Black', sans-serif" font-weight="900" font-size="108" fill="#38bdf8" text-anchor="middle" letter-spacing="14" opacity="0.3" filter="url(#titleGlow)">AIROX 2026</text>
+    <!-- Main 3D Text -->
+    <text x="0" y="0" font-family="'Inter', 'Arial Black', sans-serif" font-weight="900" font-size="108" fill="url(#airoxIceGrad)" text-anchor="middle" letter-spacing="14" stroke="#ffffff" stroke-width="2">AIROX 2026</text>
+    <!-- Facet Glass Highlights -->
+    <text x="0" y="-3" font-family="'Inter', 'Arial Black', sans-serif" font-weight="900" font-size="108" fill="none" stroke="url(#facetTop)" stroke-width="1.5" text-anchor="middle" letter-spacing="14">AIROX 2026</text>
+  </g>
+
+  <!-- Subtitle Pill: A NATIONAL LEVEL TECHNICAL SYMPOSIUM -->
+  <g transform="translate(800, 290)">
+    <rect x="-350" y="0" width="700" height="38" rx="19" fill="#080e22" stroke="#8b5cf6" stroke-width="1.5" />
+    <rect x="-345" y="4" width="690" height="30" rx="15" fill="none" stroke="#06b6d4" stroke-width="0.75" opacity="0.6" />
+    <text x="0" y="24" font-family="'Inter', sans-serif" font-weight="800" font-size="15" fill="#ffffff" text-anchor="middle" letter-spacing="4">A NATIONAL LEVEL TECHNICAL SYMPOSIUM</text>
+  </g>
+
+  <!-- Date & Venue Dual Pill -->
+  <g transform="translate(800, 350)">
+    <rect x="-440" y="0" width="880" height="50" rx="25" fill="#030718" stroke="#38bdf8" stroke-width="1.5" opacity="0.9" />
+    
+    <!-- Left: Date -->
+    <g transform="translate(-230, 31)">
+      <!-- Calendar icon -->
+      <rect x="-170" y="-18" width="22" height="22" rx="4" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <line x1="-170" y1="-10" x2="-148" y2="-10" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="-163" cy="-14" r="1.5" fill="#38bdf8" />
+      <circle cx="-155" cy="-14" r="1.5" fill="#38bdf8" />
+      <text x="-135" y="-1" font-family="'Inter', sans-serif" font-weight="900" font-size="17" fill="#ffffff" letter-spacing="2">22<tspan font-size="12" dy="-5">ND</tspan><tspan dy="5"> AUGUST 2026</tspan></text>
+    </g>
+
+    <!-- Center Divider -->
+    <line x1="0" y1="10" x2="0" y2="40" stroke="#334155" stroke-width="2" />
+
+    <!-- Right: Venue -->
+    <g transform="translate(180, 31)">
+      <!-- Map pin icon -->
+      <circle cx="-160" cy="-6" r="7" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="-160" cy="-6" r="2.5" fill="#38bdf8" />
+      <path d="M -160 1 L -160 6" stroke="#38bdf8" stroke-width="2" />
+      <text x="-140" y="-1" font-family="'Inter', sans-serif" font-weight="900" font-size="17" fill="#ffffff" letter-spacing="2">JJCET AUDITORIUM</text>
+    </g>
+  </g>
+
+  <!-- ==================== 3. LEFT CYBERNETIC AI PROFILE GRAPHIC ==================== -->
+  <g transform="translate(20, 200)">
+    <!-- Cyber face outline silhouette -->
+    <path d="M 120 100 Q 180 140 210 220 Q 230 280 250 320 Q 260 350 250 380 Q 220 450 180 500 Q 120 540 60 560 L 40 120 Z" fill="#0369a1" opacity="0.12" filter="url(#neonCyan)" />
+    
+    <!-- Circuit lines across head profile -->
+    <g stroke="#38bdf8" stroke-width="1.5" fill="none" opacity="0.85">
+      <path d="M 60 160 L 140 160 L 180 200 L 210 200" />
+      <circle cx="210" cy="200" r="3" fill="#38bdf8" />
+
+      <path d="M 80 220 L 160 220 L 190 260 L 240 260" />
+      <circle cx="240" cy="260" r="3.5" fill="#38bdf8" />
+
+      <!-- Glowing eye -->
+      <circle cx="225" cy="290" r="6" fill="#00f0ff" filter="url(#neonCyan)" />
+      <circle cx="225" cy="290" r="2" fill="#ffffff" />
+
+      <path d="M 90 320 L 170 320 L 220 370 L 245 370" />
+      <circle cx="245" cy="370" r="3" fill="#38bdf8" />
+
+      <path d="M 100 400 L 180 400 L 210 440 L 190 480" />
+      <circle cx="190" cy="480" r="3" fill="#38bdf8" />
+    </g>
+
+    <!-- Circuit grid nodes -->
+    <g fill="#0284c7" opacity="0.6">
+      <circle cx="140" cy="160" r="2" />
+      <circle cx="160" cy="220" r="2" />
+      <circle cx="170" cy="320" r="2" />
+      <circle cx="180" cy="400" r="2" />
+    </g>
+  </g>
+
+  <!-- ==================== 4. RIGHT NEON BRAIN & MR/MS AIROX ==================== -->
+  
+  <!-- Glowing Neon Holographic Brain -->
+  <g transform="translate(1380, 280)">
+    <!-- Perspective quantum grid ring below brain -->
+    <ellipse cx="0" cy="180" rx="140" ry="40" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.5" />
+    <ellipse cx="0" cy="180" rx="100" ry="26" fill="none" stroke="#8b5cf6" stroke-width="1.5" opacity="0.7" />
+    <ellipse cx="0" cy="180" rx="60" ry="16" fill="none" stroke="#00f0ff" stroke-width="1" opacity="0.8" />
+    
+    <!-- Vertical energy beam traces -->
+    <g stroke="#38bdf8" stroke-width="1" opacity="0.6">
+      <line x1="-120" y1="180" x2="-60" y2="40" />
+      <line x1="-80" y1="190" x2="-30" y2="30" />
+      <line x1="0" y1="200" x2="0" y2="20" />
+      <line x1="80" y1="190" x2="30" y2="30" />
+      <line x1="120" y1="180" x2="60" y2="40" />
+    </g>
+
+    <!-- Brain silhouette glow -->
+    <path d="M 0 -40 C -80 -40 -110 20 -70 80 C -80 120 -30 140 0 140 C 30 140 80 120 70 80 C 110 20 80 -40 0 -40 Z" fill="#1e1b4b" opacity="0.6" filter="url(#neonPurple)" />
+    
+    <!-- Brain neural nodes and convolutions -->
+    <g stroke="#38bdf8" stroke-width="2.5" fill="none" filter="url(#neonCyan)">
+      <path d="M 0 -30 Q -40 -20 -60 10 Q -80 40 -50 70 Q -60 100 -20 120 Q 0 130 0 130" />
+      <path d="M 0 -30 Q 40 -20 60 10 Q 80 40 50 70 Q 60 100 20 120 Q 0 130 0 130" />
+      <path d="M -30 0 Q -10 30 -40 50 Q -10 80 -30 100" />
+      <path d="M 30 0 Q 10 30 40 50 Q 10 80 30 100" />
+      <line x1="0" y1="-30" x2="0" y2="130" stroke="#c084fc" stroke-width="2" />
+    </g>
+
+    <!-- Synapse light points -->
+    <circle cx="-50" cy="10" r="3" fill="#ffffff" />
+    <circle cx="50" cy="10" r="3" fill="#ffffff" />
+    <circle cx="-40" cy="50" r="3" fill="#00f0ff" />
+    <circle cx="40" cy="50" r="3" fill="#00f0ff" />
+    <circle cx="-20" cy="100" r="3" fill="#f472b6" />
+    <circle cx="20" cy="100" r="3" fill="#f472b6" />
+  </g>
+
+  <!-- Crown & Mr. & Ms. AIROX Laurel Banner -->
+  <g transform="translate(1380, 580)">
+    <!-- Golden Crown -->
+    <path d="M -45 -40 L -25 -15 L 0 -45 L 25 -15 L 45 -40 L 40 0 L -40 0 Z" fill="url(#goldMetallic)" stroke="#fef08a" stroke-width="1.5" />
+    <circle cx="-45" cy="-42" r="3.5" fill="#fef08a" />
+    <circle cx="0" cy="-47" r="4" fill="#fef08a" />
+    <circle cx="45" cy="-42" r="3.5" fill="#fef08a" />
+    <rect x="-35" y="-5" width="70" height="7" rx="3" fill="#ca8a04" />
+
+    <!-- Left Laurel Wreath -->
+    <g stroke="url(#goldMetallic)" stroke-width="2" fill="none" opacity="0.9">
+      <path d="M -70 -20 Q -95 30 -50 70" />
+      <path d="M -85 -10 Q -95 0 -85 10" fill="url(#goldMetallic)" />
+      <path d="M -90 15 Q -100 25 -88 35" fill="url(#goldMetallic)" />
+      <path d="M -80 45 Q -90 55 -72 62" fill="url(#goldMetallic)" />
+    </g>
+
+    <!-- Right Laurel Wreath -->
+    <g stroke="url(#goldMetallic)" stroke-width="2" fill="none" opacity="0.9">
+      <path d="M 70 -20 Q 95 30 50 70" />
+      <path d="M 85 -10 Q 95 0 85 10" fill="url(#goldMetallic)" />
+      <path d="M 90 15 Q 100 25 88 35" fill="url(#goldMetallic)" />
+      <path d="M 80 45 Q 90 55 72 62" fill="url(#goldMetallic)" />
+    </g>
+
+    <!-- Script Subtitle -->
+    <text x="0" y="24" font-family="'Brush Script MT', 'Great Vibes', 'Georgia', serif" font-style="italic" font-size="28" fill="#fde047" text-anchor="middle">Overall Champion</text>
+    
+    <!-- Bold Gold Main Title -->
+    <text x="0" y="60" font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" font-weight="900" font-size="34" fill="url(#goldMetallic)" text-anchor="middle" letter-spacing="3">MR. &amp; MS.</text>
+    <text x="0" y="98" font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" font-weight="900" font-size="44" fill="url(#goldMetallic)" text-anchor="middle" letter-spacing="5">AIROX</text>
+  </g>
+
+  <!-- ==================== 5. CENTER EVENT TRACKS (TECHNICAL & NON-TECHNICAL) ==================== -->
+  
+  <!-- LEFT COLUMN: TECHNICAL EVENTS -->
+  <g transform="translate(360, 420)">
+    <!-- Column Card Background -->
+    <rect x="0" y="0" width="370" height="275" rx="16" fill="#070c1d" stroke="#1e3a8a" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <!-- Category Pill Header -->
+    <g transform="translate(185, 22)">
+      <rect x="-160" y="-18" width="320" height="36" rx="18" fill="#0f2b5c" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="0" y="5" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#ffffff" text-anchor="middle" letter-spacing="3">TECHNICAL EVENTS</text>
+    </g>
+
+    <!-- 1. Paper Presentation -->
+    <g transform="translate(25, 75)">
+      <!-- Document icon -->
+      <rect x="0" y="0" width="24" height="30" rx="3" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <line x1="5" y1="8" x2="19" y2="8" stroke="#38bdf8" stroke-width="2" />
+      <line x1="5" y1="14" x2="19" y2="14" stroke="#38bdf8" stroke-width="2" />
+      <line x1="5" y1="20" x2="14" y2="20" stroke="#38bdf8" stroke-width="2" />
+      <text x="42" y="21" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#ffffff" letter-spacing="0.5">1. PAPER PRESENTATION</text>
+    </g>
+
+    <!-- 2. The FinalHire -->
+    <g transform="translate(25, 125)">
+      <!-- Briefcase icon -->
+      <rect x="0" y="6" width="26" height="20" rx="3" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <path d="M 7 6 L 7 2 Q 7 0 9 0 L 17 0 Q 19 0 19 2 L 19 6" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <text x="42" y="21" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#ffffff" letter-spacing="0.5">2. THE FINALHIRE</text>
+    </g>
+
+    <!-- 3. Zero Hour (The AI Build Sprint) -->
+    <g transform="translate(25, 175)">
+      <!-- Lightning bolt icon -->
+      <polygon points="12,0 3,16 11,16 9,30 21,12 13,12" fill="#38bdf8" />
+      <text x="42" y="16" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#ffffff" letter-spacing="0.5">3. ZERO HOUR</text>
+      <text x="65" y="34" font-family="'Inter', sans-serif" font-weight="800" font-size="11" fill="#38bdf8" letter-spacing="1">THE AI BUILD SPRINT</text>
+    </g>
+
+    <!-- 4. The Prompt League -->
+    <g transform="translate(25, 230)">
+      <!-- Chat icon -->
+      <path d="M 0 5 Q 0 0 5 0 L 21 0 Q 26 0 26 5 L 26 18 Q 26 23 21 23 L 8 23 L 0 29 Z" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="7" cy="11" r="1.5" fill="#38bdf8" />
+      <circle cx="13" cy="11" r="1.5" fill="#38bdf8" />
+      <circle cx="19" cy="11" r="1.5" fill="#38bdf8" />
+      <text x="42" y="20" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#ffffff" letter-spacing="0.5">4. THE PROMPT LEAGUE</text>
+    </g>
+  </g>
+
+  <!-- RIGHT COLUMN: NON-TECHNICAL EVENTS -->
+  <g transform="translate(760, 420)">
+    <!-- Column Card Background -->
+    <rect x="0" y="0" width="370" height="275" rx="16" fill="#120924" stroke="#581c87" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <!-- Category Pill Header -->
+    <g transform="translate(185, 22)">
+      <rect x="-160" y="-18" width="320" height="36" rx="18" fill="#3b0764" stroke="#c084fc" stroke-width="1.5" />
+      <text x="0" y="5" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#ffffff" text-anchor="middle" letter-spacing="3">NON-TECHNICAL EVENTS</text>
+    </g>
+
+    <!-- 1. Ad Battle -->
+    <g transform="translate(25, 68)">
+      <!-- Megaphone icon -->
+      <path d="M 3 8 L 14 3 L 14 21 L 3 16 Z" fill="none" stroke="#c084fc" stroke-width="2" />
+      <path d="M 14 7 Q 20 2 24 12 Q 20 22 14 17" fill="none" stroke="#c084fc" stroke-width="2" />
+      <path d="M 6 16 L 6 25 L 10 25 L 10 18" fill="none" stroke="#c084fc" stroke-width="2" />
+      <text x="42" y="18" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#ffffff" letter-spacing="0.5">1. AD BATTLE</text>
+    </g>
+
+    <!-- 2. Goated or Ghosted -->
+    <g transform="translate(25, 110)">
+      <!-- Users icon -->
+      <circle cx="9" cy="8" r="5" fill="none" stroke="#c084fc" stroke-width="1.5" />
+      <path d="M 1 22 Q 1 15 9 15 Q 17 15 17 22" fill="none" stroke="#c084fc" stroke-width="1.5" />
+      <circle cx="18" cy="8" r="4" fill="none" stroke="#c084fc" stroke-width="1.5" />
+      <text x="42" y="18" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#ffffff" letter-spacing="0.5">2. GOATED OR GHOSTED</text>
+    </g>
+
+    <!-- 3. Clash and Conquer -->
+    <g transform="translate(25, 152)">
+      <!-- Crossed Swords icon -->
+      <line x1="3" y1="3" x2="22" y2="22" stroke="#c084fc" stroke-width="2" />
+      <line x1="22" y1="3" x2="3" y2="22" stroke="#c084fc" stroke-width="2" />
+      <text x="42" y="18" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#ffffff" letter-spacing="0.5">3. CLASH AND CONQUER</text>
+    </g>
+
+    <!-- 4. Box Cricket -->
+    <g transform="translate(25, 194)">
+      <!-- Bat and Ball icon -->
+      <line x1="4" y1="20" x2="18" y2="4" stroke="#c084fc" stroke-width="3.5" stroke-linecap="round" />
+      <circle cx="21" cy="18" r="4.5" fill="#facc15" />
+      <text x="42" y="18" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#ffffff" letter-spacing="0.5">4. BOX CRICKET</text>
+    </g>
+
+    <!-- 5. Esports -->
+    <g transform="translate(25, 236)">
+      <!-- Gamepad icon -->
+      <rect x="1" y="2" width="24" height="15" rx="5" fill="none" stroke="#c084fc" stroke-width="2" />
+      <line x1="6" y1="9" x2="10" y2="9" stroke="#c084fc" stroke-width="2" />
+      <line x1="8" y1="7" x2="8" y2="11" stroke="#c084fc" stroke-width="2" />
+      <circle cx="17" cy="9" r="1.5" fill="#c084fc" />
+      <circle cx="20" cy="7" r="1.5" fill="#c084fc" />
+      <text x="42" y="14" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#ffffff" letter-spacing="0.5">5. ESPORTS</text>
+      <text x="65" y="28" font-family="'Inter', sans-serif" font-weight="800" font-size="10.5" fill="#38bdf8" letter-spacing="0.5">(FREE FIRE &amp; STUMBLE GUYS)</text>
+    </g>
+  </g>
+
+  <!-- ==================== 6. LOWER-LEFT REGISTRATION & DEADLINE CARDS ==================== -->
+  
+  <!-- Registration Fees Card -->
+  <g transform="translate(40, 510)">
+    <rect x="0" y="0" width="280" height="215" rx="14" fill="#090514" stroke="#d946ef" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <text x="140" y="26" font-family="'Inter', sans-serif" font-weight="900" font-size="12" fill="#38bdf8" text-anchor="middle" letter-spacing="2">REGISTRATION FEES</text>
+    
+    <text x="140" y="52" font-family="'Inter', sans-serif" font-weight="800" font-size="11" fill="#cbd5e1" text-anchor="middle" letter-spacing="1">ONLINE REGISTRATION</text>
+    <text x="140" y="80" font-family="'Inter', sans-serif" font-weight="900" font-size="24" fill="#00f0ff" text-anchor="middle" letter-spacing="1">₹200</text>
+    
+    <line x1="25" y1="95" x2="255" y2="95" stroke="#475569" stroke-width="1.5" stroke-dasharray="4 4" />
+    
+    <text x="140" y="118" font-family="'Inter', sans-serif" font-weight="800" font-size="11" fill="#cbd5e1" text-anchor="middle" letter-spacing="1">ON-SPOT REGISTRATION</text>
+    <text x="140" y="146" font-family="'Inter', sans-serif" font-weight="900" font-size="24" fill="#f43f5e" text-anchor="middle" letter-spacing="1">₹250</text>
+    
+    <rect x="25" y="165" width="230" height="32" rx="16" fill="#0284c7" fill-opacity="0.15" stroke="#00f0ff" stroke-width="1.2" />
+    <text x="140" y="185" font-family="'Inter', sans-serif" font-weight="800" font-size="10" fill="#38bdf8" text-anchor="middle" letter-spacing="1.5">ON-SPOT REGISTRATION AVAILABLE</text>
+  </g>
+
+  <!-- Registration Deadline Card -->
+  <g transform="translate(40, 735)">
+    <rect x="0" y="0" width="280" height="135" rx="14" fill="#030c1d" stroke="#0284c7" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <!-- Alarm clock icon -->
+    <g transform="translate(25, 45)">
+      <circle cx="20" cy="20" r="18" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <polyline points="20,10 20,20 27,24" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <line x1="7" y1="5" x2="2" y2="2" stroke="#38bdf8" stroke-width="2.5" />
+      <line x1="33" y1="5" x2="38" y2="2" stroke="#38bdf8" stroke-width="2.5" />
+    </g>
+
+    <text x="165" y="32" font-family="'Inter', sans-serif" font-weight="900" font-size="11" fill="#38bdf8" text-anchor="middle" letter-spacing="2">REGISTRATION DEADLINE</text>
+    <text x="165" y="68" font-family="'Inter', sans-serif" font-weight="900" font-size="17" fill="#ffffff" text-anchor="middle" letter-spacing="1">21<tspan font-size="12" dy="-5">ST</tspan><tspan dy="5"> AUGUST 2026</tspan></text>
+    <text x="165" y="100" font-family="'Inter', sans-serif" font-weight="900" font-size="18" fill="#38bdf8" text-anchor="middle" letter-spacing="3">MIDNIGHT</text>
+  </g>
+
+  <!-- ==================== 7. QR CODE & HIGHLIGHT PERK BADGES ==================== -->
+  
+  <!-- High Contrast QR Code Box -->
+  <g transform="translate(340, 715)">
+    <rect x="0" y="0" width="145" height="155" rx="14" fill="#04091a" stroke="#38bdf8" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <!-- White QR Container -->
+    <rect x="12" y="10" width="120" height="100" rx="8" fill="#ffffff" />
+    
+    <!-- QR Code Pattern Mock -->
+    <g fill="#000000" transform="translate(18, 16)">
+      <!-- Corner Markers -->
+      <rect x="0" y="0" width="24" height="24" />
+      <rect x="3" y="3" width="18" height="18" fill="#ffffff" />
+      <rect x="6" y="6" width="12" height="12" />
+
+      <rect x="84" y="0" width="24" height="24" />
+      <rect x="87" y="3" width="18" height="18" fill="#ffffff" />
+      <rect x="90" y="6" width="12" height="12" />
+
+      <rect x="0" y="64" width="24" height="24" />
+      <rect x="3" y="67" width="18" height="18" fill="#ffffff" />
+      <rect x="6" y="70" width="12" height="12" />
+
+      <!-- QR Grid details -->
+      <rect x="32" y="4" width="8" height="8" />
+      <rect x="46" y="4" width="14" height="8" />
+      <rect x="68" y="4" width="8" height="8" />
+      <rect x="32" y="18" width="12" height="8" />
+      <rect x="52" y="18" width="18" height="8" />
+      <rect x="32" y="34" width="46" height="8" />
+      <rect x="12" y="48" width="86" height="6" />
+      <rect x="32" y="60" width="16" height="16" />
+      <rect x="56" y="60" width="22" height="8" />
+      <rect x="84" y="60" width="18" height="18" />
+    </g>
+
+    <!-- Scan to Register Pill -->
+    <rect x="12" y="118" width="120" height="24" rx="12" fill="#0284c7" />
+    <text x="72" y="134" font-family="'Inter', sans-serif" font-weight="900" font-size="8.5" fill="#ffffff" text-anchor="middle" letter-spacing="1">SCAN TO REGISTER</text>
+  </g>
+
+  <!-- 4 Highlights Badges (Horizontal Row) -->
+  <g transform="translate(500, 735)">
+    <rect x="0" y="0" width="650" height="135" rx="14" fill="#060b1e" stroke="#6366f1" stroke-width="1.2" filter="url(#cardShadow)" />
+    
+    <!-- Item 1: 3 Winners -->
+    <g transform="translate(70, 25)">
+      <!-- Trophy icon -->
+      <path d="M -12 0 L 12 0 L 9 18 Q 0 24 -9 18 Z" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <path d="M -12 4 Q -20 6 -12 14 L -8 14" fill="none" stroke="#38bdf8" stroke-width="1.5" />
+      <path d="M 12 4 Q 20 6 12 14 L 8 14" fill="none" stroke="#38bdf8" stroke-width="1.5" />
+      <line x1="0" y1="23" x2="0" y2="32" stroke="#38bdf8" stroke-width="2" />
+      <line x1="-10" y1="32" x2="10" y2="32" stroke="#38bdf8" stroke-width="2" />
+      <text x="0" y="58" font-family="'Inter', sans-serif" font-weight="900" font-size="12" fill="#00f0ff" text-anchor="middle">3 WINNERS</text>
+      <text x="0" y="75" font-family="'Inter', sans-serif" font-weight="800" font-size="9" fill="#cbd5e1" text-anchor="middle">IN EACH EVENT</text>
+    </g>
+
+    <!-- Item 2: Certificates -->
+    <g transform="translate(230, 25)">
+      <!-- Certificate icon -->
+      <rect x="-16" y="0" width="32" height="24" rx="3" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <line x1="-10" y1="6" x2="10" y2="6" stroke="#38bdf8" stroke-width="1.5" />
+      <line x1="-10" y1="12" x2="4" y2="12" stroke="#38bdf8" stroke-width="1.5" />
+      <circle cx="8" cy="22" r="6" fill="#060b1e" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="0" y="58" font-family="'Inter', sans-serif" font-weight="900" font-size="12" fill="#00f0ff" text-anchor="middle">CERTIFICATES</text>
+      <text x="0" y="75" font-family="'Inter', sans-serif" font-weight="800" font-size="9" fill="#cbd5e1" text-anchor="middle">FOR ALL PARTICIPANTS</text>
+    </g>
+
+    <!-- Item 3: Exciting Prizes -->
+    <g transform="translate(390, 25)">
+      <!-- Rosette / Medal icon -->
+      <circle cx="0" cy="10" r="10" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <line x1="-4" y1="6" x2="4" y2="14" stroke="#38bdf8" stroke-width="2" />
+      <line x1="4" y1="6" x2="-4" y2="14" stroke="#38bdf8" stroke-width="2" />
+      <path d="M -5 18 L -9 30 L 0 26 L 9 30 L 5 18" fill="none" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="0" y="58" font-family="'Inter', sans-serif" font-weight="900" font-size="12" fill="#00f0ff" text-anchor="middle">EXCITING PRIZES</text>
+      <text x="0" y="75" font-family="'Inter', sans-serif" font-weight="800" font-size="9" fill="#cbd5e1" text-anchor="middle">AWAIT ALL WINNERS</text>
+    </g>
+
+    <!-- Item 4: Overall Champion Crown -->
+    <g transform="translate(555, 25)">
+      <!-- Crown star icon -->
+      <polygon points="0,0 4,8 12,9 6,15 8,23 0,19 -8,23 -6,15 -12,9 -4,8" fill="none" stroke="#38bdf8" stroke-width="1.8" />
+      <text x="0" y="58" font-family="'Inter', sans-serif" font-weight="900" font-size="11" fill="#00f0ff" text-anchor="middle">OVERALL CHAMPION</text>
+      <text x="0" y="72" font-family="'Inter', sans-serif" font-weight="800" font-size="8.5" fill="#cbd5e1" text-anchor="middle">WILL BE CROWNED</text>
+      <text x="0" y="84" font-family="'Inter', sans-serif" font-weight="800" font-size="8.5" fill="#cbd5e1" text-anchor="middle">AS MR. &amp; MS. AIROX</text>
+    </g>
+  </g>
+
+  <!-- Right Dignitaries Card: Principal -->
+  <g transform="translate(1170, 735)">
+    <rect x="0" y="0" width="380" height="135" rx="14" fill="#030a1c" stroke="#1e3a8a" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <text x="190" y="32" font-family="'Inter', sans-serif" font-weight="900" font-size="15" fill="#38bdf8" text-anchor="middle" letter-spacing="3">PRINCIPAL</text>
+    
+    <!-- Avatar Icon -->
+    <circle cx="45" cy="80" r="14" fill="none" stroke="#38bdf8" stroke-width="2" />
+    <circle cx="45" cy="76" r="6" fill="#38bdf8" />
+    <path d="M 33 90 Q 45 84 57 90" fill="none" stroke="#38bdf8" stroke-width="2" />
+    
+    <text x="75" y="85" font-family="'Inter', sans-serif" font-weight="900" font-size="19" fill="#ffffff" letter-spacing="0.5">Dr.P.MATHIYALAGAN <tspan font-size="14" font-weight="700" fill="#94a3b8">M.E., Ph.D</tspan></text>
+  </g>
+
+  <!-- ==================== 8. BOTTOM COORDINATORS & CONVENOR BAR ==================== -->
+  
+  <!-- Student Coordinators -->
+  <g transform="translate(20, 885)">
+    <rect x="0" y="0" width="450" height="90" rx="12" fill="#04091a" stroke="#1e293b" stroke-width="1" />
+    <text x="225" y="24" font-family="'Inter', sans-serif" font-weight="900" font-size="12" fill="#00f0ff" text-anchor="middle" letter-spacing="2">STUDENT COORDINATORS</text>
+    
+    <!-- Lekshman S -->
+    <g transform="translate(25, 45)">
+      <circle cx="12" cy="15" r="10" fill="none" stroke="#00f0ff" stroke-width="1.5" />
+      <circle cx="12" cy="12" r="4.5" fill="#00f0ff" />
+      <text x="32" y="14" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#ffffff">LEKSHMAN S</text>
+      <text x="32" y="32" font-family="'Courier New', monospace" font-weight="800" font-size="13" fill="#38bdf8">+91 9150313122</text>
+    </g>
+
+    <!-- Bhula Nancy D -->
+    <g transform="translate(245, 45)">
+      <circle cx="12" cy="15" r="10" fill="none" stroke="#00f0ff" stroke-width="1.5" />
+      <circle cx="12" cy="12" r="4.5" fill="#00f0ff" />
+      <text x="32" y="14" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#ffffff">BHULA NANCY D</text>
+      <text x="32" y="32" font-family="'Courier New', monospace" font-weight="800" font-size="13" fill="#38bdf8">+91 6369461227</text>
+    </g>
+  </g>
+
+  <!-- Faculty Coordinators -->
+  <g transform="translate(485, 885)">
+    <rect x="0" y="0" width="665" height="90" rx="12" fill="#04091a" stroke="#1e293b" stroke-width="1" />
+    <text x="332" y="24" font-family="'Inter', sans-serif" font-weight="900" font-size="12" fill="#d946ef" text-anchor="middle" letter-spacing="2">FACULTY COORDINATORS</text>
+    
+    <g transform="translate(20, 56)">
+      <!-- Mrs. G. Deepalakshmi -->
+      <g transform="translate(0, 0)">
+        <circle cx="10" cy="0" r="8" fill="none" stroke="#d946ef" stroke-width="1.5" />
+        <circle cx="10" cy="-2" r="3.5" fill="#d946ef" />
+        <text x="24" y="4" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#ffffff">Mrs. G. DEEPALAKSHMI</text>
+      </g>
+
+      <!-- Mrs. P. Sumathi -->
+      <g transform="translate(230, 0)">
+        <circle cx="10" cy="0" r="8" fill="none" stroke="#d946ef" stroke-width="1.5" />
+        <circle cx="10" cy="-2" r="3.5" fill="#d946ef" />
+        <text x="24" y="4" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#ffffff">Mrs. P. SUMATHI</text>
+      </g>
+
+      <!-- Mrs. M. Shanmugapriya -->
+      <g transform="translate(435, 0)">
+        <circle cx="10" cy="0" r="8" fill="none" stroke="#d946ef" stroke-width="1.5" />
+        <circle cx="10" cy="-2" r="3.5" fill="#d946ef" />
+        <text x="24" y="4" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#ffffff">Mrs. M. SHANMUGAPRIYA</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Convenor Card -->
+  <g transform="translate(1165, 885)">
+    <rect x="0" y="0" width="415" height="90" rx="12" fill="#04091a" stroke="#1e293b" stroke-width="1" />
+    <text x="207" y="24" font-family="'Inter', sans-serif" font-weight="900" font-size="12" fill="#38bdf8" text-anchor="middle" letter-spacing="2">CONVENOR</text>
+    
+    <g transform="translate(30, 48)">
+      <circle cx="14" cy="10" r="10" fill="none" stroke="#38bdf8" stroke-width="1.5" />
+      <circle cx="14" cy="7" r="4.5" fill="#38bdf8" />
+      <text x="35" y="10" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#ffffff">Dr. K. SARAVANA KUMAR</text>
+      <text x="35" y="28" font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="#94a3b8">HOD</text>
+    </g>
+  </g>
+
+  <!-- Bottom Academic Credit Line -->
+  <g transform="translate(800, 1020)">
+    <line x1="-500" y1="0" x2="-350" y2="0" stroke="#38bdf8" stroke-width="1.5" opacity="0.6" />
+    <text x="0" y="5" font-family="'Inter', sans-serif" font-weight="900" font-size="15" fill="#38bdf8" text-anchor="middle" letter-spacing="3">ORGANIZED BY THE DEPARTMENT OF ARTIFICIAL INTELLIGENCE AND DATA SCIENCE</text>
+    <line x1="350" y1="0" x2="500" y2="0" stroke="#38bdf8" stroke-width="1.5" opacity="0.6" />
+    
+    <line x1="-300" y1="28" x2="-180" y2="28" stroke="#cbd5e1" stroke-width="1" opacity="0.4" />
+    <text x="0" y="32" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle" letter-spacing="2">IN ASSOCIATION WITH ISTE MEMBERS</text>
+    <line x1="180" y1="28" x2="300" y2="28" stroke="#cbd5e1" stroke-width="1" opacity="0.4" />
+  </g>
+</svg>

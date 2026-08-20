@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Dark Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#02040a"/>
+      <stop offset="50%" stop-color="#050914"/>
+      <stop offset="100%" stop-color="#080311"/>
+    </linearGradient>
+
+    <!-- Cyan Glow -->
+    <radialGradient id="cyanGlow" cx="0%" cy="100%" r="60%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35"/>
+      <stop offset="40%" stop-color="#0891b2" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Magenta Glow -->
+    <radialGradient id="magentaGlow" cx="100%" cy="0%" r="60%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.30"/>
+      <stop offset="45%" stop-color="#a855f7" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Bottom Right Pink Glow -->
+    <radialGradient id="pinkGlow" cx="100%" cy="100%" r="50%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#be185d" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1"/>
+      <circle cx="40" cy="40" r="1" fill="rgba(255, 255, 255, 0.08)"/>
+    </pattern>
+
+    <!-- Cyan Linear Glow for Traces -->
+    <linearGradient id="cyanTrace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <!-- Magenta Linear Glow for Traces -->
+    <linearGradient id="magentaTrace" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f472b6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Base Canvas -->
+  <rect width="1920" height="1080" fill="url(#bgGrad)"/>
+  <rect width="1920" height="1080" fill="url(#gridPattern)"/>
+
+  <!-- Radial Glows -->
+  <rect width="1920" height="1080" fill="url(#cyanGlow)"/>
+  <rect width="1920" height="1080" fill="url(#magentaGlow)"/>
+  <rect width="1920" height="1080" fill="url(#pinkGlow)"/>
+
+  <!-- BOTTOM-LEFT: CYAN PLEXUS & CIRCUIT TRACES -->
+  <g id="bottomLeftCyanPlexus" stroke="url(#cyanTrace)">
+    <!-- Circuit Trace Lines -->
+    <path d="M 0,900 L 120,900 L 200,980 L 350,980" fill="none" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <path d="M 0,800 L 180,800 L 260,880 L 420,880" fill="none" stroke-width="1.5"/>
+    <path d="M 0,700 L 90,700 L 160,770 L 300,770" fill="none" stroke-width="1"/>
+
+    <!-- Plexus Network Polygon Mesh -->
+    <polygon points="40,1040 120,950 220,1020" fill="rgba(6, 182, 212, 0.08)" stroke="#22d3ee" stroke-width="0.8"/>
+    <polygon points="120,950 240,920 220,1020" fill="rgba(6, 182, 212, 0.12)" stroke="#06b6d4" stroke-width="0.8"/>
+    <polygon points="240,920 340,980 220,1020" fill="rgba(6, 182, 212, 0.06)" stroke="#0891b2" stroke-width="0.8"/>
+    <polygon points="120,950 180,850 240,920" fill="rgba(6, 182, 212, 0.09)" stroke="#22d3ee" stroke-width="0.8"/>
+    <polygon points="180,850 300,820 240,920" fill="rgba(6, 182, 212, 0.05)" stroke="#06b6d4" stroke-width="0.8"/>
+    <polygon points="300,820 380,890 240,920" fill="rgba(6, 182, 212, 0.07)" stroke="#22d3ee" stroke-width="0.8"/>
+
+    <!-- Connecting Lines -->
+    <line x1="40" y1="1040" x2="120" y2="950" stroke="#22d3ee" stroke-width="1.2"/>
+    <line x1="120" y1="950" x2="240" y2="920" stroke="#22d3ee" stroke-width="1.2"/>
+    <line x1="240" y1="920" x2="380" y2="890" stroke="#06b6d4" stroke-width="1"/>
+    <line x1="180" y1="850" x2="300" y2="820" stroke="#22d3ee" stroke-width="1"/>
+    <line x1="300" y1="820" x2="440" y2="840" stroke="#0891b2" stroke-width="0.8"/>
+
+    <!-- Glowing Nodes -->
+    <circle cx="40" cy="1040" r="4" fill="#67e8f9"/>
+    <circle cx="120" cy="950" r="5" fill="#22d3ee"/>
+    <circle cx="220" cy="1020" r="3.5" fill="#06b6d4"/>
+    <circle cx="240" cy="920" r="6" fill="#a5f3fc"/>
+    <circle cx="180" cy="850" r="4" fill="#22d3ee"/>
+    <circle cx="300" cy="820" r="4.5" fill="#67e8f9"/>
+    <circle cx="380" cy="890" r="3" fill="#06b6d4"/>
+    <circle cx="340" cy="980" r="4" fill="#22d3ee"/>
+    <circle cx="440" cy="840" r="3" fill="#0891b2"/>
+  </g>
+
+  <!-- TOP-RIGHT & BOTTOM-RIGHT: MAGENTA / PINK PLEXUS MESH -->
+  <g id="rightMagentaPlexus" stroke="url(#magentaTrace)">
+    <!-- Circuit Traces Top Right -->
+    <path d="M 1920,120 L 1800,120 L 1720,200 L 1580,200" fill="none" stroke-width="1.5"/>
+    <path d="M 1920,220 L 1760,220 L 1680,300 L 1520,300" fill="none" stroke-width="1" stroke-dasharray="8,4"/>
+
+    <!-- Polygon Mesh Top Right -->
+    <polygon points="1880,40 1780,110 1860,180" fill="rgba(236, 72, 153, 0.12)" stroke="#f472b6" stroke-width="0.8"/>
+    <polygon points="1780,110 1660,80 1720,220" fill="rgba(168, 85, 247, 0.10)" stroke="#c084fc" stroke-width="0.8"/>
+    <polygon points="1780,110 1720,220 1860,180" fill="rgba(236, 72, 153, 0.15)" stroke="#ec4899" stroke-width="0.8"/>
+    <polygon points="1720,220 1620,280 1780,320" fill="rgba(236, 72, 153, 0.08)" stroke="#f472b6" stroke-width="0.8"/>
+    <polygon points="1720,220 1780,320 1880,260" fill="rgba(168, 85, 247, 0.12)" stroke="#c084fc" stroke-width="0.8"/>
+
+    <!-- Polygon Mesh Bottom Right -->
+    <polygon points="1840,920 1720,980 1880,1040" fill="rgba(244, 63, 94, 0.14)" stroke="#fb7185" stroke-width="0.8"/>
+    <polygon points="1720,980 1600,940 1680,1050" fill="rgba(236, 72, 153, 0.10)" stroke="#f472b6" stroke-width="0.8"/>
+    <path d="M 1920,960 L 1800,960 L 1720,1040 L 1560,1040" fill="none" stroke-width="1.5"/>
+
+    <!-- Glowing Nodes -->
+    <circle cx="1880" cy="40" r="4" fill="#fbcfe8"/>
+    <circle cx="1780" cy="110" r="5.5" fill="#f472b6"/>
+    <circle cx="1860" cy="180" r="4" fill="#ec4899"/>
+    <circle cx="1660" cy="80" r="3.5" fill="#c084fc"/>
+    <circle cx="1720" cy="220" r="6" fill="#f472b6"/>
+    <circle cx="1620" cy="280" r="4" fill="#a855f7"/>
+    <circle cx="1780" cy="320" r="4.5" fill="#ec4899"/>
+    <circle cx="1880" cy="260" r="3.5" fill="#f472b6"/>
+
+    <circle cx="1840" cy="920" r="5" fill="#fda4af"/>
+    <circle cx="1720" cy="980" r="6" fill="#fb7185"/>
+    <circle cx="1880" cy="1040" r="4.5" fill="#f43f5e"/>
+    <circle cx="1600" cy="940" r="3.5" fill="#f472b6"/>
+  </g>
+
+  <!-- AMBIENT CONSTELLATION DUST -->
+  <g fill="rgba(255, 255, 255, 0.4)">
+    <circle cx="300" cy="200" r="1"/>
+    <circle cx="500" cy="150" r="1.5"/>
+    <circle cx="800" cy="300" r="1"/>
+    <circle cx="1100" cy="180" r="1.2"/>
+    <circle cx="1400" cy="400" r="1"/>
+    <circle cx="950" cy="600" r="1.5"/>
+    <circle cx="450" cy="700" r="1"/>
+    <circle cx="1300" cy="750" r="1.2"/>
+    <circle cx="1600" cy="650" r="1"/>
+  </g>
+</svg>

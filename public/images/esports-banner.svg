@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <!-- Dark Gaming Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0518" />
+      <stop offset="50%" stop-color="#050814" />
+      <stop offset="100%" stop-color="#140803" />
+    </linearGradient>
+
+    <linearGradient id="leftSideGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff3b00" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#ff8c00" stop-opacity="0.05" />
+    </linearGradient>
+
+    <linearGradient id="rightSideGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9333ea" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.05" />
+    </linearGradient>
+
+    <linearGradient id="vsGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe600" />
+      <stop offset="50%" stop-color="#ff9900" />
+      <stop offset="100%" stop-color="#ff3300" />
+    </linearGradient>
+
+    <linearGradient id="textMetallic" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#94a3b8" />
+    </linearGradient>
+
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="glowOrange" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="glowPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="675" fill="url(#bgGrad)" />
+
+  <!-- Grid Pattern Overlay -->
+  <g opacity="0.15">
+    <path d="M0 75 H1200 M0 150 H1200 M0 225 H1200 M0 300 H1200 M0 375 H1200 M0 450 H1200 M0 525 H1200 M0 600 H1200" stroke="#38bdf8" stroke-width="1" />
+    <path d="M150 0 V675 M300 0 V675 M450 0 V675 M600 0 V675 M750 0 V675 M900 0 V675 M1050 0 V675" stroke="#38bdf8" stroke-width="1" />
+  </g>
+
+  <!-- Left Side: FREE FIRE MAX (Orange / Flame Battleground Zone) -->
+  <polygon points="0,0 620,0 480,675 0,675" fill="url(#leftSideGrad)" />
+  <circle cx="220" cy="220" r="180" fill="#ff4500" opacity="0.15" filter="url(#glowOrange)" />
+
+  <!-- Right Side: STUMBLE GUYS (Purple / Cyan Obstacle Zone) -->
+  <polygon points="620,0 1200,0 1200,675 480,675" fill="url(#rightSideGrad)" />
+  <circle cx="980" cy="220" r="200" fill="#a855f7" opacity="0.2" filter="url(#glowPurple)" />
+
+  <!-- Central Split Lightning Shockwave -->
+  <path d="M620 -20 L570 250 L630 310 L530 695" stroke="#00f2fe" stroke-width="6" fill="none" filter="url(#glowOrange)" opacity="0.9" />
+  <path d="M615 -20 L565 250 L625 310 L525 695" stroke="#ffffff" stroke-width="3" fill="none" />
+
+  <!-- Left Side Badge: FREE FIRE MAX -->
+  <g transform="translate(80, 70)">
+    <rect x="0" y="0" width="280" height="64" rx="8" fill="#180e05" stroke="#ff6b00" stroke-width="2" />
+    <text x="20" y="38" font-family="'Impact', 'Arial Black', sans-serif" font-size="26" font-weight="900" fill="#ff9900" letter-spacing="2">FREE FIRE</text>
+    <rect x="185" y="16" width="75" height="30" rx="4" fill="#ff3300" />
+    <text x="194" y="37" font-family="'Impact', 'Arial Black', sans-serif" font-size="18" font-weight="900" fill="#ffffff" letter-spacing="1">MAX</text>
+  </g>
+
+  <!-- Right Side Badge: STUMBLE GUYS -->
+  <g transform="translate(840, 70)">
+    <rect x="0" y="0" width="280" height="64" rx="8" fill="#0d1126" stroke="#a855f7" stroke-width="2" />
+    <text x="25" y="42" font-family="'Arial Black', sans-serif" font-size="26" font-weight="900" fill="#38bdf8" letter-spacing="1">STUMBLE</text>
+    <text x="175" y="42" font-family="'Arial Black', sans-serif" font-size="26" font-weight="900" fill="#facc15" letter-spacing="1">GUYS</text>
+  </g>
+
+  <!-- Center Graphic: VS Shield -->
+  <g transform="translate(600, 310)">
+    <polygon points="0,-65 50,-25 35,45 0,65 -35,45 -50,-25" fill="#090d16" stroke="url(#vsGold)" stroke-width="4" filter="url(#glowOrange)" />
+    <text x="0" y="15" font-family="'Impact', sans-serif" font-size="48" font-weight="900" fill="url(#vsGold)" text-anchor="middle" font-style="italic">VS</text>
+  </g>
+
+  <!-- Hero Typography: ESPORTS -->
+  <g transform="translate(600, 460)">
+    <!-- Shadow / Glow Layer -->
+    <text x="0" y="8" font-family="'Impact', 'Arial Black', sans-serif" font-size="110" font-weight="900" fill="#000000" text-anchor="middle" letter-spacing="12" opacity="0.8">ESPORTS</text>
+    <!-- Front Text -->
+    <text x="0" y="0" font-family="'Impact', 'Arial Black', sans-serif" font-size="110" font-weight="900" fill="url(#textMetallic)" stroke="#1e293b" stroke-width="3" text-anchor="middle" letter-spacing="12">ESPORTS</text>
+  </g>
+
+  <!-- Subtitle Tagline Badge: PLAY. COMPETE. CONQUER. -->
+  <g transform="translate(600, 535)">
+    <rect x="-240" y="-22" width="480" height="44" rx="22" fill="#090d16" stroke="url(#accentCyan)" stroke-width="2" />
+    <text x="-140" y="6" font-family="'Arial Black', sans-serif" font-size="16" font-weight="900" fill="#38bdf8" text-anchor="middle" letter-spacing="2">PLAY.</text>
+    <text x="0" y="6" font-family="'Arial Black', sans-serif" font-size="16" font-weight="900" fill="#facc15" text-anchor="middle" letter-spacing="2">COMPETE.</text>
+    <text x="140" y="6" font-family="'Arial Black', sans-serif" font-size="16" font-weight="900" fill="#ff4500" text-anchor="middle" letter-spacing="2">CONQUER.</text>
+  </g>
+
+  <!-- Decorative Outer Border Frame -->
+  <rect x="15" y="15" width="1170" height="645" rx="16" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="2" />
+  <rect x="25" y="25" width="1150" height="625" rx="12" fill="none" stroke="#38bdf8" stroke-opacity="0.2" stroke-dasharray="8 8" stroke-width="1" />
+</svg>
