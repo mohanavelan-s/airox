@@ -225,16 +225,13 @@ export const EventsSection: React.FC<EventsSectionProps> = ({
                     {/* Primary Solid Action Button (Matching Reference UI) */}
                     <div className="pt-2">
                       {event.isOnlineRegistrationClosed ? (
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            onSelectEventForRegistration(event.id);
-                          }}
-                          className="w-full py-2.5 px-4 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 font-bold text-xs sm:text-sm rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                        <div
+                          onClick={(e) => e.stopPropagation()}
+                          className="w-full py-2.5 px-4 bg-amber-500/20 border border-amber-500/40 text-amber-300 font-bold text-xs sm:text-sm rounded-xl shadow-md flex items-center justify-center gap-2 cursor-default select-none"
                         >
                           <AlertCircle className="w-4 h-4 text-amber-400" />
                           <span>Online Closed</span>
-                        </button>
+                        </div>
                       ) : (
                         <button
                           onClick={(e) => {
