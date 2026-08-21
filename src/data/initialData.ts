@@ -157,7 +157,9 @@ export const TECHNICAL_EVENTS: SymposiumEvent[] = [
       ]
     },
     tags: ['AI Build', 'Web Dev', 'Rapid Deploy'],
-    participationMode: 'both'
+    participationMode: 'both',
+    isOnlineRegistrationClosed: true,
+    closedNotice: 'Online registration for Zero Hour is closed. Please check out our other technical events!'
   },
   {
     id: 'tech-04',
@@ -252,7 +254,9 @@ export const NON_TECHNICAL_EVENTS: SymposiumEvent[] = [
       ]
     },
     tags: ['Talent', 'Stage', 'Entertainment'],
-    participationMode: 'team'
+    participationMode: 'team',
+    isOnlineRegistrationClosed: true,
+    closedNotice: 'Online registration for Goated or Ghosted is closed. Please check out our other non-technical events!'
   },
   {
     id: 'nontech-03',

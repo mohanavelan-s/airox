@@ -501,6 +501,12 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
   };
 
   const handleNonTechToggle = (eventTitle: string) => {
+    const targetEvent = NON_TECHNICAL_EVENTS.find((e) => e.title === eventTitle);
+    if (targetEvent?.isOnlineRegistrationClosed) {
+      setClosedEventNotice(targetEvent);
+      return;
+    }
+
     setFormData((prev) => {
       const isSelected = prev.nonTechnicalEvents.includes(eventTitle);
       if (isSelected) {
@@ -561,14 +567,20 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
       if (activeTechEvents.length !== formData.technicalEvents.length) {
         setFormData((prev) => ({ ...prev, technicalEvents: activeTechEvents }));
       }
-      const activeTotal = activeTechEvents.length + formData.nonTechnicalEvents.length;
+      const activeNonTechEvents = formData.nonTechnicalEvents.filter(
+        (nt) => !NON_TECHNICAL_EVENTS.find((e) => e.title === nt)?.isOnlineRegistrationClosed
+      );
+      if (activeNonTechEvents.length !== formData.nonTechnicalEvents.length) {
+        setFormData((prev) => ({ ...prev, nonTechnicalEvents: activeNonTechEvents }));
+      }
+      const activeTotal = activeTechEvents.length + activeNonTechEvents.length;
 
       if (activeTotal < 1) {
         newErrors.events = 'Select at least 1 Technical event and 1 Non-Technical event to proceed.';
       } else if (activeTechEvents.length < 1) {
-        newErrors.events = 'Constraint: Out of your choices, you MUST select at least 1 Technical event (e.g. Zero Hour, The Final Hire, or The Prompt League). Note: Paper Presentation is closed for online registration.';
-      } else if (formData.nonTechnicalEvents.length < 1) {
-        newErrors.events = 'Constraint: Out of your choices, you MUST select at least 1 Non-Technical event.';
+        newErrors.events = 'Constraint: Out of your choices, you MUST select at least 1 Technical event (e.g. The Final Hire or The Prompt League). Note: Paper Presentation and Zero Hour are closed for online registration.';
+      } else if (activeNonTechEvents.length < 1) {
+        newErrors.events = 'Constraint: Out of your choices, you MUST select at least 1 Non-Technical event. Note: Goated or Ghosted is closed for online registration.';
       } else if (activeTotal > 3) {
         newErrors.events = 'You can select a maximum of 3 events total.';
       }
@@ -1216,10 +1228,10 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                       <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                       <div className="space-y-1 leading-relaxed text-gray-300">
                         <span className="text-amber-300 font-bold block">
-                          Important Notice: Paper Presentation Online Registration Closed
+                          Important Notice: Online Registration Closed for Certain Events
                         </span>
                         <p className="text-gray-300 text-[11px]">
-                          Online registration for Paper Presentation has concluded. Please select from our other 3 exciting Technical events below.
+                          Online registration for <strong className="text-white">Paper Presentation</strong>, <strong className="text-white">Zero Hour</strong>, and <strong className="text-white">Goated or Ghosted</strong> has concluded. Please select from our other exciting events below.
                         </p>
                       </div>
                     </div>
@@ -1327,8 +1339,37 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                       {isNonTechOpen && (
                         <div className="p-3 grid grid-cols-1 sm:grid-cols-2 gap-2 border-t border-amber-500/20 bg-black/40">
                           {filteredNonTechnicalEvents.map((event) => {
+                            const isClosed = Boolean(event.isOnlineRegistrationClosed);
                             const isChecked = formData.nonTechnicalEvents.includes(event.title);
                             const isDisabled = !isChecked && totalSelectedEvents >= 3;
+
+                            if (isClosed) {
+                              return (
+                                <div
+                                  key={event.id}
+                                  className="col-span-1 sm:col-span-2 p-3.5 rounded-xl border border-amber-500/30 bg-amber-950/20 flex items-center justify-between gap-2.5 shadow-sm opacity-90 cursor-not-allowed select-none"
+                                >
+                                  <div className="flex items-start gap-2.5 min-w-0">
+                                    <div className="w-5 h-5 rounded-md flex items-center justify-center bg-amber-500/20 text-amber-400 shrink-0 mt-0.5">
+                                      <AlertCircle className="w-3.5 h-3.5" />
+                                    </div>
+                                    <div className="min-w-0">
+                                      <div className="flex items-center gap-2 flex-wrap">
+                                        <span className="text-xs font-bold text-gray-300 line-through opacity-80">
+                                          {event.title}
+                                        </span>
+                                        <span className="text-[9px] font-mono uppercase font-extrabold px-2 py-0.5 rounded bg-amber-500 text-black shadow-sm">
+                                          ONLINE REGISTRATION CLOSED
+                                        </span>
+                                      </div>
+                                      <span className="text-[11px] text-amber-300/90 font-medium block mt-0.5">
+                                        The event is closed for online registration
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            }
 
                             return (
                               <div
