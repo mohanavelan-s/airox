@@ -263,7 +263,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
 
   // Generate guaranteed client-side UPI QR code
   useEffect(() => {
-    const upiUri = 'upi://pay?pa=senthillakshman11@okicici&pn=Lekshman%20Lejju&am=200&cu=INR';
+    const upiUri = 'upi://pay?pa=senthillakshman11@okicici&pn=MV&am=200&cu=INR';
     QRCode.toDataURL(upiUri, {
       width: 400,
       margin: 1,
@@ -281,7 +281,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
   const [copiedPhone, setCopiedPhone] = useState(false);
 
   const handleCopyPhone = () => {
-    navigator.clipboard.writeText('+91 63694 61227');
+    navigator.clipboard.writeText('+91 86677 95829');
     setCopiedPhone(true);
     setTimeout(() => setCopiedPhone(false), 2000);
   };
@@ -575,6 +575,10 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
         } else if (formData.paymentScreenshot.size > 1024 * 1024) {
           newErrors.paymentScreenshot = 'File size exceeds 1 MB limit. Please upload a smaller screenshot.';
         }
+      }
+
+      if (!formData.utrNumber || !formData.utrNumber.trim()) {
+        newErrors.utrNumber = 'UTR / UPI Reference Number is required.';
       }
     }
 
@@ -1424,25 +1428,25 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                         <div className="p-3.5 bg-white rounded-2xl shrink-0 flex flex-col items-center shadow-xl border border-gray-200 text-center w-full sm:w-auto max-w-[230px]">
                           <div className="flex items-center gap-1.5 text-black text-xs font-bold mb-2">
                             <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
-                            Lekshman Lejju
+                            MV
                           </div>
                           <div className="p-1 bg-white rounded-xl border border-gray-200 shadow-inner flex items-center justify-center overflow-hidden min-h-[160px] min-w-[160px]">
                             {qrCodeDataUrl ? (
                               <img
                                 src={qrCodeDataUrl}
-                                alt="Payment QR Code - Lekshman Lejju"
+                                alt="Payment QR Code - MV"
                                 className="w-44 h-44 object-contain rounded-lg"
                               />
                             ) : (
                               <img
-                                src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi%3A%2F%2Fpay%3Fpa%3Dsenthillakshman11%40okicici%26pn%3DLekshman%2520Lejju%26am%3D200%26cu%3DINR"
-                                alt="Payment QR Code - Lekshman Lejju"
+                                src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi%3A%2F%2Fpay%3Fpa%3Dsenthillakshman11%40okicici%26pn%3DMV%26am%3D200%26cu%3DINR"
+                                alt="Payment QR Code - MV"
                                 className="w-44 h-44 object-contain rounded-lg"
                               />
                             )}
                           </div>
                           <div className="mt-2 text-[10px] font-bold text-gray-800 bg-gray-100 px-2.5 py-1 rounded-full border border-gray-200 w-full truncate font-mono">
-                            +91 63694 61227
+                            +91 86677 95829
                           </div>
                           <span className="text-[11px] text-emerald-700 font-bold mt-1">Fee: ₹200.00</span>
                         </div>
@@ -1453,7 +1457,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                             <span className="text-emerald-400 font-bold text-base block">
                               Registration Fee: ₹{SYMPOSIUM_INFO.registration.onlineFee}
                             </span>
-                            <span className="text-gray-300 text-xs">A/C Holder: <strong className="text-white">Lekshman Lejju</strong></span>
+                            <span className="text-gray-300 text-xs">A/C Holder: <strong className="text-white">MV</strong></span>
                           </div>
 
                           {/* Mobile / GPay Number Box */}
@@ -1479,12 +1483,12 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                               </button>
                             </div>
                             <code className="block bg-black/40 px-3 py-1.5 rounded-lg text-cyan-300 font-mono text-xs border border-white/10 select-all">
-                              +91 63694 61227
+                              +91 86677 95829
                             </code>
                           </div>
 
                           <p className="text-gray-300 leading-relaxed text-[11px]">
-                            Pay via Google Pay, PhonePe, Paytm, BHIM or CRED to <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">+91 63694 61227</code>.
+                            Pay via Google Pay, PhonePe, Paytm, BHIM or CRED to <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">+91 86677 95829</code>.
                           </p>
                         </div>
                       </div>
@@ -1575,7 +1579,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                       {/* UTR / UPI Reference Number */}
                       <div className="space-y-1.5 pt-2 border-t border-white/10">
                         <label className="block text-xs font-semibold text-white tracking-wide pl-1">
-                          UTR / UPI Reference Number (Optional)
+                          UTR / UPI Reference Number <span className="text-cyan-400 font-bold">*</span>
                         </label>
                         <input
                           type="text"
@@ -1584,8 +1588,13 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                           value={formData.utrNumber}
                           onChange={handleInputChange}
                           placeholder="e.g. 12-digit UTR ID (123456789012)"
-                          className="w-full bg-white/10 border border-white/15 text-white text-sm rounded-2xl px-5 py-3.5 placeholder-gray-500 focus:bg-white/15 focus:border-white focus:outline-none transition-all"
+                          className={`w-full bg-white/10 border text-white text-sm rounded-2xl px-5 py-3.5 placeholder-gray-500 focus:bg-white/15 focus:border-white focus:outline-none transition-all ${
+                            errors.utrNumber ? 'border-red-500/70 focus:border-red-500' : 'border-white/15'
+                          }`}
                         />
+                        {errors.utrNumber && (
+                          <p className="text-xs text-red-400 pl-1">{errors.utrNumber}</p>
+                        )}
                       </div>
 
                     </div>
