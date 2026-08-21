@@ -48,7 +48,13 @@ import {
   Layers,
   Award,
   CreditCard,
-  Eye
+  Eye,
+  Calendar,
+  Clock,
+  MapPin,
+  Phone,
+  ExternalLink,
+  Info
 } from 'lucide-react';
 import { TECHNICAL_EVENTS, NON_TECHNICAL_EVENTS, SYMPOSIUM_INFO } from '../../data/initialData';
 import { RegistrationFormData, SymposiumEvent } from '../../types';
@@ -223,6 +229,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
   const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
   const [qrCodeDataUrl, setQrCodeDataUrl] = useState<string>('');
   const [closedEventNotice, setClosedEventNotice] = useState<SymposiumEvent | null>(null);
+  const [showSpotModal, setShowSpotModal] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -729,6 +736,36 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                 </span>
               </div>
 
+              {/* PROMINENT SPOT REGISTRATION ANNOUNCEMENT BANNER */}
+              <div className="my-5 p-4 rounded-2xl bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-orange-500/15 border border-amber-500/40 backdrop-blur-md shadow-[0_0_25px_rgba(245,158,11,0.15)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                    <AlertCircle className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-xs sm:text-sm font-black text-amber-300 uppercase tracking-wide font-sans">
+                        Online Registrations Closed • On-Spot Registration Available
+                      </span>
+                      <span className="text-[9px] font-mono font-black uppercase px-2 py-0.5 rounded bg-amber-400 text-black">
+                        VENUE WALK-IN
+                      </span>
+                    </div>
+                    <p className="text-xs text-amber-100/90 leading-relaxed font-sans">
+                      Online portal registrations have closed. All students are invited to register directly at the <strong className="text-white">JJCET Registration Desk</strong> on event day (<strong className="text-white">22 August 2026</strong>, 09:30 AM – 10:30 AM).
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowSpotModal(true)}
+                  className="px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(245,158,11,0.4)] shrink-0 flex items-center justify-center gap-1.5 cursor-pointer self-start sm:self-center"
+                >
+                  <Info className="w-4 h-4" />
+                  <span>Spot Registration Guide</span>
+                </button>
+              </div>
+
               {/* MULTI-STEP PROGRESS NAVIGATION INDICATOR */}
               <div className="py-6 border-b border-white/10">
                 
@@ -1224,16 +1261,26 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                     )}
 
                     {/* ONLINE REGISTRATION CLOSED NOTIFICATION BANNER */}
-                    <div className="p-3.5 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex items-start gap-3 text-xs">
-                      <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                      <div className="space-y-1 leading-relaxed text-gray-300">
-                        <span className="text-amber-300 font-bold block">
-                          Important Notice: Online Registration Closed for Certain Events
-                        </span>
-                        <p className="text-gray-300 text-[11px]">
-                          Online registration for <strong className="text-white">Paper Presentation</strong>, <strong className="text-white">Zero Hour</strong>, and <strong className="text-white">Goated or Ghosted</strong> has concluded. Please select from our other exciting events below.
-                        </p>
+                    <div className="p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                      <div className="flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                        <div className="space-y-1 leading-relaxed text-gray-300">
+                          <span className="text-amber-300 font-bold block text-sm">
+                            Online Registration Closed • Spot Registration Open!
+                          </span>
+                          <p className="text-gray-300 text-xs">
+                            Online registrations have concluded for all events. You can register on the spot at the <strong className="text-white">JJCET Registration Desk</strong> on event day (<strong className="text-white">22 August 2026</strong>).
+                          </p>
+                        </div>
                       </div>
+                      <button
+                        type="button"
+                        onClick={() => setShowSpotModal(true)}
+                        className="px-3.5 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 text-black font-extrabold text-[11px] uppercase tracking-wider transition-all shrink-0 self-start sm:self-center cursor-pointer flex items-center gap-1.5 shadow-sm"
+                      >
+                        <Info className="w-3.5 h-3.5" />
+                        <span>Spot Info</span>
+                      </button>
                     </div>
 
                     {/* TECHNICAL EVENTS CATEGORY */}
@@ -1263,26 +1310,30 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                               return (
                                 <div
                                   key={event.id}
-                                  className="col-span-1 sm:col-span-2 p-3.5 rounded-xl border border-amber-500/30 bg-amber-950/20 flex items-center justify-between gap-2.5 shadow-sm opacity-90 cursor-not-allowed select-none"
+                                  onClick={() => setClosedEventNotice(event)}
+                                  className="col-span-1 sm:col-span-2 p-3.5 rounded-xl border border-amber-500/30 bg-amber-950/20 hover:bg-amber-950/40 hover:border-amber-500/60 transition-all flex items-center justify-between gap-2.5 shadow-sm cursor-pointer select-none group"
                                 >
                                   <div className="flex items-start gap-2.5 min-w-0">
-                                    <div className="w-5 h-5 rounded-md flex items-center justify-center bg-amber-500/20 text-amber-400 shrink-0 mt-0.5">
+                                    <div className="w-5 h-5 rounded-md flex items-center justify-center bg-amber-500/20 text-amber-400 shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
                                       <AlertCircle className="w-3.5 h-3.5" />
                                     </div>
                                     <div className="min-w-0">
                                       <div className="flex items-center gap-2 flex-wrap">
-                                        <span className="text-xs font-bold text-gray-300 line-through opacity-80">
+                                        <span className="text-xs font-bold text-gray-300 group-hover:text-white transition-colors">
                                           {event.title}
                                         </span>
                                         <span className="text-[9px] font-mono uppercase font-extrabold px-2 py-0.5 rounded bg-amber-500 text-black shadow-sm">
-                                          ONLINE REGISTRATION CLOSED
+                                          ONLINE CLOSED • SPOT OPEN
                                         </span>
                                       </div>
                                       <span className="text-[11px] text-amber-300/90 font-medium block mt-0.5">
-                                        The event is closed for online registration
+                                        Spot Registration Available at Venue • Click to view details
                                       </span>
                                     </div>
                                   </div>
+                                  <span className="text-[10px] font-mono text-amber-400 underline font-bold shrink-0 hidden sm:inline">
+                                    Details →
+                                  </span>
                                 </div>
                               );
                             }
@@ -1347,26 +1398,30 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                               return (
                                 <div
                                   key={event.id}
-                                  className="col-span-1 sm:col-span-2 p-3.5 rounded-xl border border-amber-500/30 bg-amber-950/20 flex items-center justify-between gap-2.5 shadow-sm opacity-90 cursor-not-allowed select-none"
+                                  onClick={() => setClosedEventNotice(event)}
+                                  className="col-span-1 sm:col-span-2 p-3.5 rounded-xl border border-amber-500/30 bg-amber-950/20 hover:bg-amber-950/40 hover:border-amber-500/60 transition-all flex items-center justify-between gap-2.5 shadow-sm cursor-pointer select-none group"
                                 >
                                   <div className="flex items-start gap-2.5 min-w-0">
-                                    <div className="w-5 h-5 rounded-md flex items-center justify-center bg-amber-500/20 text-amber-400 shrink-0 mt-0.5">
+                                    <div className="w-5 h-5 rounded-md flex items-center justify-center bg-amber-500/20 text-amber-400 shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
                                       <AlertCircle className="w-3.5 h-3.5" />
                                     </div>
                                     <div className="min-w-0">
                                       <div className="flex items-center gap-2 flex-wrap">
-                                        <span className="text-xs font-bold text-gray-300 line-through opacity-80">
+                                        <span className="text-xs font-bold text-gray-300 group-hover:text-white transition-colors">
                                           {event.title}
                                         </span>
                                         <span className="text-[9px] font-mono uppercase font-extrabold px-2 py-0.5 rounded bg-amber-500 text-black shadow-sm">
-                                          ONLINE REGISTRATION CLOSED
+                                          ONLINE CLOSED • SPOT OPEN
                                         </span>
                                       </div>
                                       <span className="text-[11px] text-amber-300/90 font-medium block mt-0.5">
-                                        The event is closed for online registration
+                                        Spot Registration Available at Venue • Click to view details
                                       </span>
                                     </div>
                                   </div>
+                                  <span className="text-[10px] font-mono text-amber-400 underline font-bold shrink-0 hidden sm:inline">
+                                    Details →
+                                  </span>
                                 </div>
                               );
                             }
@@ -2023,37 +2078,192 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
         );
       })()}
 
-      {/* POPUP MODAL: ONLINE REGISTRATION CLOSED */}
-      {closedEventNotice && (
+      {/* POPUP MODAL: ON-SPOT REGISTRATION GUIDE */}
+      {(closedEventNotice || showSpotModal) && (
         <Modal
-          isOpen={!!closedEventNotice}
-          onClose={() => setClosedEventNotice(null)}
-          title="Online Registration Closed"
-          subtitle={`${closedEventNotice.title.toUpperCase()} • REGISTRATION UPDATE`}
-          maxWidth="sm"
+          isOpen={Boolean(closedEventNotice || showSpotModal)}
+          onClose={() => {
+            setClosedEventNotice(null);
+            setShowSpotModal(false);
+          }}
+          title="On-Spot Registration Guide"
+          subtitle={
+            closedEventNotice
+              ? `${closedEventNotice.title.toUpperCase()} • SPOT REGISTRATION OPEN`
+              : "AIROX '26 • ON-SPOT REGISTRATION AT JJCET"
+          }
+          maxWidth="lg"
         >
-          <div className="space-y-5 text-gray-200 font-dm">
-            {/* Primary Alert Box */}
-            <div className="p-4 rounded-xl bg-amber-500/15 border border-amber-500/40 flex items-start gap-3">
-              <AlertCircle className="w-6 h-6 text-amber-400 shrink-0 mt-0.5" />
-              <div className="space-y-1">
-                <h4 className="text-sm font-bold text-amber-300 font-sans">
-                  The event is closed for online registration
-                </h4>
-                <p className="text-xs text-amber-100/90 leading-relaxed font-sans">
-                  Online registration for <strong className="text-white">{closedEventNotice.title}</strong> is closed.
+          <div className="space-y-6 text-gray-200 font-dm">
+            {/* Primary Gold Banner */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-orange-500/20 border border-amber-500/40 flex items-start gap-3.5 shadow-[0_0_25px_rgba(245,158,11,0.15)]">
+              <div className="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+                <AlertCircle className="w-5 h-5" />
+              </div>
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <h4 className="text-sm sm:text-base font-extrabold text-amber-300 font-sans tracking-wide">
+                    Online Registration Closed • Join via On-Spot Registration!
+                  </h4>
+                  <span className="text-[9px] font-mono font-black uppercase px-2 py-0.5 rounded bg-amber-400 text-black">
+                    WALK-IN WELCOME
+                  </span>
+                </div>
+                <p className="text-xs sm:text-sm text-amber-100/90 leading-relaxed font-sans">
+                  {closedEventNotice ? (
+                    <>
+                      Online portal registrations for <strong className="text-white font-bold">{closedEventNotice.title}</strong> have concluded. However, you can register directly at the registration desk on the event day!
+                    </>
+                  ) : (
+                    <>
+                      Online portal registrations for all events have concluded. You can directly walk in and register on the day of the symposium at the JJCET registration counter!
+                    </>
+                  )}
                 </p>
               </div>
             </div>
 
+            {/* Quick Fast Facts Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3">
+                <Calendar className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+                <div className="min-w-0">
+                  <span className="text-[10px] font-mono uppercase text-gray-400 font-bold block">Symposium Date</span>
+                  <span className="text-xs sm:text-sm font-bold text-white block">Saturday, 22 August 2026</span>
+                  <span className="text-[11px] text-gray-400 block">Inauguration at 09:30 AM</span>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3">
+                <Clock className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                <div className="min-w-0">
+                  <span className="text-[10px] font-mono uppercase text-gray-400 font-bold block">Desk Reporting Hours</span>
+                  <span className="text-xs sm:text-sm font-bold text-white block">09:30 AM – 10:30 AM</span>
+                  <span className="text-[11px] text-amber-300/80 block">Please arrive before 10:30 AM</span>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3">
+                <CreditCard className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                <div className="min-w-0">
+                  <span className="text-[10px] font-mono uppercase text-gray-400 font-bold block">Spot Registration Fee</span>
+                  <span className="text-xs sm:text-sm font-bold text-emerald-300 block">₹250 / Participant</span>
+                  <span className="text-[11px] text-gray-400 block">Cash & UPI accepted at desk</span>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
+                <div className="min-w-0">
+                  <span className="text-[10px] font-mono uppercase text-gray-400 font-bold block">Registration Venue</span>
+                  <span className="text-xs sm:text-sm font-bold text-white block">Main Auditorium Desk</span>
+                  <span className="text-[11px] text-gray-400 block">JJCET Campus, Ammapettai, Trichy</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Delegate Kit & Benefits */}
+            <div className="p-4 rounded-xl bg-cyan-950/20 border border-cyan-500/30 space-y-2">
+              <span className="text-[10px] font-mono uppercase text-cyan-300 font-bold tracking-wider flex items-center gap-1.5">
+                <Award className="w-3.5 h-3.5" /> Spot Registration Delegate Benefits
+              </span>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] text-gray-300 font-sans">
+                <div className="p-2 rounded-lg bg-black/40 border border-white/5 flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span>Official Delegate Kit</span>
+                </div>
+                <div className="p-2 rounded-lg bg-black/40 border border-white/5 flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span>Complimentary Lunch</span>
+                </div>
+                <div className="p-2 rounded-lg bg-black/40 border border-white/5 flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span>Refreshments</span>
+                </div>
+                <div className="p-2 rounded-lg bg-black/40 border border-white/5 flex items-center gap-2">
+                  <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span>Certificates for All</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Steps for Walk-in Delegates */}
+            <div className="space-y-2.5">
+              <span className="text-xs font-mono uppercase text-gray-400 font-bold tracking-wider block">
+                How to Register on Spot:
+              </span>
+              <div className="space-y-2 text-xs text-gray-300 font-sans">
+                <div className="p-2.5 rounded-lg bg-white/5 border border-white/10 flex items-start gap-2.5">
+                  <span className="w-5 h-5 rounded-full bg-amber-400 text-black font-extrabold text-[10px] flex items-center justify-center shrink-0">1</span>
+                  <span>Report directly to the <strong>Main Registration Desk</strong> at JJCET between <strong>09:30 AM and 10:30 AM</strong>.</span>
+                </div>
+                <div className="p-2.5 rounded-lg bg-white/5 border border-white/10 flex items-start gap-2.5">
+                  <span className="w-5 h-5 rounded-full bg-amber-400 text-black font-extrabold text-[10px] flex items-center justify-center shrink-0">2</span>
+                  <span>Show your official <strong>College ID Card</strong> or Bonafide certificate.</span>
+                </div>
+                <div className="p-2.5 rounded-lg bg-white/5 border border-white/10 flex items-start gap-2.5">
+                  <span className="w-5 h-5 rounded-full bg-amber-400 text-black font-extrabold text-[10px] flex items-center justify-center shrink-0">3</span>
+                  <span>Pay the <strong>₹250 fee</strong> (Cash / UPI QR) and collect your <strong>Delegate Badge & Event Pass</strong>.</span>
+                </div>
+                <div className="p-2.5 rounded-lg bg-white/5 border border-white/10 flex items-start gap-2.5">
+                  <span className="w-5 h-5 rounded-full bg-amber-400 text-black font-extrabold text-[10px] flex items-center justify-center shrink-0">4</span>
+                  <span>Participate in your preferred technical and non-technical events and compete for prizes!</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Helpline Contacts */}
+            <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-2">
+              <span className="text-[10px] font-mono uppercase text-gray-400 font-bold block">
+                Queries & Assistance Helplines
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                <a
+                  href="tel:+918667795829"
+                  className="p-2 rounded-lg bg-black/40 hover:bg-black/60 border border-white/10 flex items-center gap-2 text-cyan-300 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span className="truncate">Mohanavelan: +91 86677 95829</span>
+                </a>
+                <a
+                  href="tel:+916369461227"
+                  className="p-2 rounded-lg bg-black/40 hover:bg-black/60 border border-white/10 flex items-center gap-2 text-cyan-300 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span className="truncate">Madhan Kumar S: +91 63694 61227</span>
+                </a>
+                <a
+                  href="tel:+919150313122"
+                  className="p-2 rounded-lg bg-black/40 hover:bg-black/60 border border-white/10 flex items-center gap-2 text-cyan-300 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span className="truncate">Dharshan L: +91 91503 13122</span>
+                </a>
+              </div>
+            </div>
+
             {/* Modal Actions */}
-            <div className="pt-3 border-t border-white/10 flex items-center justify-end gap-3">
+            <div className="pt-3 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <a
+                href="https://maps.google.com/?q=J.J.+College+of+Engineering+and+Technology,+Ammapettai,+Tiruchirappalli"
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold text-white transition-colors cursor-pointer"
+              >
+                <MapPin className="w-4 h-4 text-pink-400" />
+                <span>Get Campus Directions (Google Maps)</span>
+                <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
+              </a>
+
               <button
                 type="button"
-                onClick={() => setClosedEventNotice(null)}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-xl border border-white/20 text-xs font-bold text-gray-200 hover:bg-white/10 transition-colors cursor-pointer"
+                onClick={() => {
+                  setClosedEventNotice(null);
+                  setShowSpotModal(false);
+                }}
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black text-xs font-extrabold uppercase tracking-wider transition-colors cursor-pointer shadow-sm"
               >
-                Close
+                Got It, Thank You
               </button>
             </div>
           </div>

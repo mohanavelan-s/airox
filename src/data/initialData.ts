@@ -97,7 +97,7 @@ export const TECHNICAL_EVENTS: SymposiumEvent[] = [
     tags: ['Paper Presentation', 'AI & DS', 'Research'],
     participationMode: 'team',
     isOnlineRegistrationClosed: true,
-    closedNotice: 'Online registration for Paper Presentation is closed. Please check out our other technical events!'
+    closedNotice: 'Online registration for Paper Presentation is closed. Please come for on-spot registration at the venue!'
   },
   {
     id: 'tech-02',
@@ -127,7 +127,9 @@ export const TECHNICAL_EVENTS: SymposiumEvent[] = [
       ]
     },
     tags: ['Placement', 'Aptitude', 'Interview'],
-    participationMode: 'individual'
+    participationMode: 'individual',
+    isOnlineRegistrationClosed: true,
+    closedNotice: 'Online registration for The Final Hire is closed. Please come for on-spot registration at the venue!'
   },
   {
     id: 'tech-03',
@@ -159,7 +161,7 @@ export const TECHNICAL_EVENTS: SymposiumEvent[] = [
     tags: ['AI Build', 'Web Dev', 'Rapid Deploy'],
     participationMode: 'both',
     isOnlineRegistrationClosed: true,
-    closedNotice: 'Online registration for Zero Hour is closed. Please check out our other technical events!'
+    closedNotice: 'Online registration for Zero Hour is closed. Please come for on-spot registration at the venue!'
   },
   {
     id: 'tech-04',
@@ -189,7 +191,9 @@ export const TECHNICAL_EVENTS: SymposiumEvent[] = [
       ]
     },
     tags: ['Prompt Engineering', 'GenAI', 'LLM'],
-    participationMode: 'individual'
+    participationMode: 'individual',
+    isOnlineRegistrationClosed: true,
+    closedNotice: 'Online registration for The Prompt League is closed. Please come for on-spot registration at the venue!'
   }
 ];
 
@@ -222,7 +226,9 @@ export const NON_TECHNICAL_EVENTS: SymposiumEvent[] = [
       ]
     },
     tags: ['Video Creation', 'Advertisement', 'Editing', 'Creative'],
-    participationMode: 'both'
+    participationMode: 'both',
+    isOnlineRegistrationClosed: true,
+    closedNotice: 'Online registration for Ads Shot is closed. Please come for on-spot registration at the venue!'
   },
   {
     id: 'nontech-02',
@@ -256,7 +262,7 @@ export const NON_TECHNICAL_EVENTS: SymposiumEvent[] = [
     tags: ['Talent', 'Stage', 'Entertainment'],
     participationMode: 'team',
     isOnlineRegistrationClosed: true,
-    closedNotice: 'Online registration for Goated or Ghosted is closed. Please check out our other non-technical events!'
+    closedNotice: 'Online registration for Goated or Ghosted is closed. Please come for on-spot registration at the venue!'
   },
   {
     id: 'nontech-03',
@@ -287,7 +293,9 @@ export const NON_TECHNICAL_EVENTS: SymposiumEvent[] = [
       ]
     },
     tags: ['Strategy', 'Teamwork', 'Fun'],
-    participationMode: 'both'
+    participationMode: 'both',
+    isOnlineRegistrationClosed: true,
+    closedNotice: 'Online registration for Clash and Conquer is closed. Please come for on-spot registration at the venue!'
   },
   {
     id: 'nontech-04',
@@ -319,7 +327,9 @@ export const NON_TECHNICAL_EVENTS: SymposiumEvent[] = [
       ]
     },
     tags: ['Sports', 'Cricket', 'Team'],
-    participationMode: 'team'
+    participationMode: 'team',
+    isOnlineRegistrationClosed: true,
+    closedNotice: 'Online registration for Box Cricket is closed. Please come for on-spot registration at the venue!'
   },
   {
     id: 'nontech-05',
@@ -354,7 +364,9 @@ export const NON_TECHNICAL_EVENTS: SymposiumEvent[] = [
       ]
     },
     tags: ['Esports', 'Free Fire', 'Stumble Guys', 'Gaming'],
-    participationMode: 'both'
+    participationMode: 'both',
+    isOnlineRegistrationClosed: true,
+    closedNotice: 'Online registration for eSports is closed. Please come for on-spot registration at the venue!'
   }
 ];
 

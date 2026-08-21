@@ -289,16 +289,16 @@ export const EventsSection: React.FC<EventsSectionProps> = ({
               </span>
             </div>
 
-            {/* Closed Registration Alert Banner */}
+            {/* Closed Registration Alert Banner with Spot Registration info */}
             {selectedEvent.isOnlineRegistrationClosed && (
               <div className="p-4 rounded-xl bg-amber-500/15 border border-amber-500/40 flex items-start gap-3">
                 <AlertCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                 <div className="space-y-1">
                   <h4 className="text-sm font-bold text-amber-300 font-sans">
-                    The event is closed for online registration
+                    Online Registration Closed • Spot Registration Available
                   </h4>
                   <p className="text-xs text-amber-100/90 leading-relaxed font-sans">
-                    Online registration for this event is closed.
+                    Online portal registration for <strong className="text-white">{selectedEvent.title}</strong> has concluded. You can still register in person via <strong className="text-amber-300">On-Spot Registration</strong> at the JJCET registration desk on event day (22 August 2026).
                   </p>
                 </div>
               </div>
