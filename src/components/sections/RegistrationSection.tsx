@@ -263,7 +263,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
 
   // Generate guaranteed client-side UPI QR code
   useEffect(() => {
-    const upiUri = 'upi://pay?pa=senthillakshman11@okicici&pn=MV&am=200&cu=INR';
+    const upiUri = 'upi://pay?pa=mohanavelan2006-1@oksbi&pn=MV&am=200&cu=INR';
     QRCode.toDataURL(upiUri, {
       width: 400,
       margin: 1,
@@ -284,6 +284,12 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
     navigator.clipboard.writeText('+91 86677 95829');
     setCopiedPhone(true);
     setTimeout(() => setCopiedPhone(false), 2000);
+  };
+
+  const handleCopyUpi = () => {
+    navigator.clipboard.writeText('mohanavelan2006-1@oksbi');
+    setCopiedUpi(true);
+    setTimeout(() => setCopiedUpi(false), 2000);
   };
 
   // Manage image preview memory URL
@@ -1425,7 +1431,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                       <div className="flex flex-col sm:flex-row items-center gap-5">
                         
                         {/* QR Code Container */}
-                        <div className="p-3.5 bg-white rounded-2xl shrink-0 flex flex-col items-center shadow-xl border border-gray-200 text-center w-full sm:w-auto max-w-[230px]">
+                        <div className="p-3.5 bg-white rounded-2xl shrink-0 flex flex-col items-center shadow-xl border border-gray-200 text-center w-full sm:w-auto max-w-[240px]">
                           <div className="flex items-center gap-1.5 text-black text-xs font-bold mb-2">
                             <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
                             MV
@@ -1434,19 +1440,19 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                             {qrCodeDataUrl ? (
                               <img
                                 src={qrCodeDataUrl}
-                                alt="Payment QR Code - MV"
+                                alt="Google Pay QR Code - MV (mohanavelan2006-1@oksbi)"
                                 className="w-44 h-44 object-contain rounded-lg"
                               />
                             ) : (
                               <img
-                                src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi%3A%2F%2Fpay%3Fpa%3Dsenthillakshman11%40okicici%26pn%3DMV%26am%3D200%26cu%3DINR"
-                                alt="Payment QR Code - MV"
+                                src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi%3A%2F%2Fpay%3Fpa%3Dmohanavelan2006-1%40oksbi%26pn%3DMV%26am%3D200%26cu%3DINR"
+                                alt="Google Pay QR Code - MV"
                                 className="w-44 h-44 object-contain rounded-lg"
                               />
                             )}
                           </div>
-                          <div className="mt-2 text-[10px] font-bold text-gray-800 bg-gray-100 px-2.5 py-1 rounded-full border border-gray-200 w-full truncate font-mono">
-                            +91 86677 95829
+                          <div className="mt-2 text-[10px] font-bold text-gray-800 bg-gray-100 px-2 py-1 rounded-lg border border-gray-200 w-full truncate font-mono select-all">
+                            UPI ID: mohanavelan2006-1@oksbi
                           </div>
                           <span className="text-[11px] text-emerald-700 font-bold mt-1">Fee: ₹200.00</span>
                         </div>
@@ -1460,10 +1466,37 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                             <span className="text-gray-300 text-xs">A/C Holder: <strong className="text-white">MV</strong></span>
                           </div>
 
-                          {/* Mobile / GPay Number Box */}
+                          {/* UPI ID Box */}
                           <div className="p-3 bg-white/5 rounded-xl border border-white/10 space-y-2">
                             <div className="flex items-center justify-between text-xs gap-2 flex-wrap">
-                              <span className="text-gray-300 font-medium">GPay / Phone Pe Mobile:</span>
+                              <span className="text-gray-300 font-medium">UPI ID (Google Pay / PhonePe):</span>
+                              <button
+                                type="button"
+                                onClick={handleCopyUpi}
+                                className="px-2.5 py-1 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 text-[11px] font-semibold rounded-md border border-cyan-500/40 transition-colors flex items-center gap-1 cursor-pointer"
+                              >
+                                {copiedUpi ? (
+                                  <>
+                                    <Check className="w-3 h-3 text-emerald-400" />
+                                    <span className="text-emerald-400">Copied</span>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Copy className="w-3 h-3 text-cyan-400" />
+                                    <span>Copy UPI ID</span>
+                                  </>
+                                )}
+                              </button>
+                            </div>
+                            <code className="block bg-black/40 px-3 py-1.5 rounded-lg text-cyan-300 font-mono text-xs border border-white/10 select-all">
+                              mohanavelan2006-1@oksbi
+                            </code>
+                          </div>
+
+                          {/* Mobile Number Box */}
+                          <div className="p-3 bg-white/5 rounded-xl border border-white/10 space-y-2">
+                            <div className="flex items-center justify-between text-xs gap-2 flex-wrap">
+                              <span className="text-gray-300 font-medium">Mobile Number:</span>
                               <button
                                 type="button"
                                 onClick={handleCopyPhone}
@@ -1488,7 +1521,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                           </div>
 
                           <p className="text-gray-300 leading-relaxed text-[11px]">
-                            Pay via Google Pay, PhonePe, Paytm, BHIM or CRED to <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">+91 86677 95829</code>.
+                            Scan QR code or pay via Google Pay, PhonePe, Paytm, BHIM to <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">mohanavelan2006-1@oksbi</code> or <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">+91 86677 95829</code>.
                           </p>
                         </div>
                       </div>
