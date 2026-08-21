@@ -281,7 +281,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
   const [copiedPhone, setCopiedPhone] = useState(false);
 
   const handleCopyPhone = () => {
-    navigator.clipboard.writeText('+91 63811 53036');
+    navigator.clipboard.writeText('+91 63694 61227');
     setCopiedPhone(true);
     setTimeout(() => setCopiedPhone(false), 2000);
   };
@@ -1442,7 +1442,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                             )}
                           </div>
                           <div className="mt-2 text-[10px] font-bold text-gray-800 bg-gray-100 px-2.5 py-1 rounded-full border border-gray-200 w-full truncate font-mono">
-                            +91 63811 53036
+                            +91 63694 61227
                           </div>
                           <span className="text-[11px] text-emerald-700 font-bold mt-1">Fee: ₹200.00</span>
                         </div>
@@ -1479,12 +1479,12 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                               </button>
                             </div>
                             <code className="block bg-black/40 px-3 py-1.5 rounded-lg text-cyan-300 font-mono text-xs border border-white/10 select-all">
-                              +91 63811 53036
+                              +91 63694 61227
                             </code>
                           </div>
 
                           <p className="text-gray-300 leading-relaxed text-[11px]">
-                            Pay via Google Pay, PhonePe, Paytm, BHIM or CRED to <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">+91 63811 53036</code>.
+                            Pay via Google Pay, PhonePe, Paytm, BHIM or CRED to <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">+91 63694 61227</code>.
                           </p>
                         </div>
                       </div>
