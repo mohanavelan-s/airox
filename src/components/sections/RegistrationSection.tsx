@@ -288,7 +288,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
   const [copiedPhone, setCopiedPhone] = useState(false);
 
   const handleCopyPhone = () => {
-    navigator.clipboard.writeText('+91 86677 95829');
+    navigator.clipboard.writeText('+91 63811 53036');
     setCopiedPhone(true);
     setTimeout(() => setCopiedPhone(false), 2000);
   };
@@ -1612,12 +1612,12 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                               </button>
                             </div>
                             <code className="block bg-black/40 px-3 py-1.5 rounded-lg text-cyan-300 font-mono text-xs border border-white/10 select-all">
-                              +91 86677 95829
+                              +91 63811 53036
                             </code>
                           </div>
 
                           <p className="text-gray-300 leading-relaxed text-[11px]">
-                            Scan QR code or pay via Google Pay, PhonePe, Paytm, BHIM to <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">mohanavelan2006-1@oksbi</code> or <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">+91 86677 95829</code>.
+                            Scan QR code or pay via Google Pay, PhonePe, Paytm, BHIM to <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">mohanavelan2006-1@oksbi</code> or <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">+91 63811 53036</code>.
                           </p>
                         </div>
                       </div>
@@ -2215,29 +2215,15 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
             {/* Helpline Contacts */}
             <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-2">
               <span className="text-[10px] font-mono uppercase text-gray-400 font-bold block">
-                Queries & Assistance Helplines
+                Queries & Assistance Helpline
               </span>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+              <div className="grid grid-cols-1 gap-2 text-xs">
                 <a
-                  href="tel:+918667795829"
-                  className="p-2 rounded-lg bg-black/40 hover:bg-black/60 border border-white/10 flex items-center gap-2 text-cyan-300 transition-colors"
+                  href="tel:+916381153036"
+                  className="p-2.5 rounded-lg bg-black/40 hover:bg-black/60 border border-white/10 flex items-center justify-center sm:justify-start gap-2.5 text-cyan-300 transition-colors"
                 >
-                  <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                  <span className="truncate">Mohanavelan: +91 86677 95829</span>
-                </a>
-                <a
-                  href="tel:+916369461227"
-                  className="p-2 rounded-lg bg-black/40 hover:bg-black/60 border border-white/10 flex items-center gap-2 text-cyan-300 transition-colors"
-                >
-                  <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                  <span className="truncate">Madhan Kumar S: +91 63694 61227</span>
-                </a>
-                <a
-                  href="tel:+919150313122"
-                  className="p-2 rounded-lg bg-black/40 hover:bg-black/60 border border-white/10 flex items-center gap-2 text-cyan-300 transition-colors"
-                >
-                  <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                  <span className="truncate">Dharshan L: +91 91503 13122</span>
+                  <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span className="truncate font-semibold">AIROX Helpline Desk: +91 63811 53036</span>
                 </a>
               </div>
             </div>

@@ -67,16 +67,10 @@ export const ContactSection: React.FC = () => {
                   <span>Student Helplines</span>
                 </div>
                 <div className="space-y-1 text-xs text-gray-300">
-                  <div className="flex items-center justify-between border-b border-white/5 py-2">
-                    <span className="text-gray-400 font-mono">Student Desk 1:</span>
-                    <a href="tel:+916369461227" className="font-mono font-semibold text-white hover:text-[#f09650] transition-colors">
-                      +91 63694 61227
-                    </a>
-                  </div>
                   <div className="flex items-center justify-between py-2">
-                    <span className="text-gray-400 font-mono">Student Desk 2:</span>
-                    <a href="tel:+919150313122" className="font-mono font-semibold text-white hover:text-[#f09650] transition-colors">
-                      +91 91503 13122
+                    <span className="text-gray-400 font-mono">Student Helpline:</span>
+                    <a href="tel:+916381153036" className="font-mono font-semibold text-white hover:text-[#f09650] transition-colors">
+                      +91 63811 53036
                     </a>
                   </div>
                 </div>

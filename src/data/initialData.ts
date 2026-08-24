@@ -154,7 +154,7 @@ export const TECHNICAL_EVENTS: SymposiumEvent[] = [
     ],
     coordinators: {
       student: [
-        { name: 'Mohanavelan S', phone: '+91 86677 95829' },
+        { name: 'Mohanavelan S', phone: '+91 63811 53036' },
         { name: 'Deepa U', phone: '+91 73958 68047' }
       ]
     },
@@ -221,7 +221,7 @@ export const NON_TECHNICAL_EVENTS: SymposiumEvent[] = [
     ],
     coordinators: {
       student: [
-        { name: 'Sunpoornarajan M', phone: '+91 63694 61227' },
+        { name: 'Sunpoornarajan M', phone: '+91 63811 53036' },
         { name: 'Madhushree B', phone: '+91 73392 17479' }
       ]
     },
@@ -418,7 +418,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     department: 'Department of AI & DS (Final Year)',
     photoUrl: 'https://drive.google.com/thumbnail?id=1lXYrXwchFJ7d_mxrzIf4kdlYSCJ0Nni-&sz=w1000',
     bio: 'Managing student volunteer committees, venue logistics, and hospitality for AIROX 2026 delegates.',
-    contact: { phone: '+91 91503 13122' },
+    contact: { phone: '+91 63811 53036' },
     isPlaceholder: false
   },
   {
@@ -438,7 +438,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     department: 'Department of AI & DS (Final Year)',
     photoUrl: 'https://drive.google.com/thumbnail?id=1SsX6yZ94FETwYhbyucT1NI9d7Tecyb3k&sz=w1000',
     bio: 'Coordinating student committees, delegate assistance, and event execution for AIROX 2026.',
-    contact: { phone: '+91 63694 61227' },
+    contact: { phone: '+91 63811 53036' },
     isPlaceholder: false
   },
   {
