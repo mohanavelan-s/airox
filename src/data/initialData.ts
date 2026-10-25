@@ -154,7 +154,7 @@ export const TECHNICAL_EVENTS: SymposiumEvent[] = [
     ],
     coordinators: {
       student: [
-        { name: 'Mohanavelan S', phone: '+91 63811 53036' },
+        { name: 'Mohanavelan S', phone: '+91 86677 95829' },
         { name: 'Deepa U', phone: '+91 73958 68047' }
       ]
     },

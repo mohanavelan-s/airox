@@ -24,16 +24,18 @@ import { CountdownTimer } from '../ui/CountdownTimer';
 interface HeroSectionProps {
   onRegisterClick: () => void;
   onExploreEventsClick: () => void;
+  onViewBrochureClick?: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   onRegisterClick,
   onExploreEventsClick,
+  onViewBrochureClick,
 }) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-transparent text-white font-dm flex flex-col justify-between overflow-hidden pt-12 sm:pt-16 lg:pt-20 pb-12 px-4 sm:px-8 lg:px-16"
+      className="relative min-h-screen bg-transparent text-white font-dm flex flex-col justify-between overflow-hidden pt-8 sm:pt-12 lg:pt-16 pb-12 px-4 sm:px-8 lg:px-16"
     >
       {/* MAIN HERO CONTENT */}
       <div className="w-full max-w-[1700px] mx-auto flex-1 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center py-8 z-10">
@@ -51,7 +53,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Accent Cyan Rectangle Block */}
             <span className="w-3.5 h-9 bg-cyan-400 block shrink-0 rounded-sm shadow-[0_0_15px_rgba(34,211,238,0.8)]" />
             <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-cyan-300">
-              NATIONAL LEVEL TECHNICAL SYMPOSIUM 2026
+              NATIONAL LEVEL TECHNICAL SYMPOSIUM 2026 · EVENT CONCLUDED
             </span>
           </motion.div>
 
@@ -70,12 +72,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </p>
           </motion.div>
 
-          {/* Description Paragraph under Vertical Keyline - ENLARGED */}
+          {/* Description Paragraph */}
           <motion.div
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="border-l-4 border-cyan-400 pl-6 py-2 space-y-4"
+            className="border border-cyan-500/30 bg-cyan-950/15 rounded-xl p-5 space-y-4"
           >
             <p className="text-base sm:text-xl text-gray-200 leading-relaxed font-normal max-w-2xl">
               Accelerating Intelligence, Engineering the Future. A flagship national summit hosted by the Department of AI & DS at JJ College of Engineering and Technology (Autonomous), Trichy.
@@ -85,7 +87,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3 pt-2 text-sm sm:text-base text-white font-bold uppercase tracking-wider">
               <span className="flex items-center gap-2 text-gray-200">
                 <Calendar className="w-4 h-4 text-cyan-400" />
-                {SYMPOSIUM_INFO.date}
+                {SYMPOSIUM_INFO.date} (Ended)
               </span>
               <span className="flex items-center gap-2 text-gray-200">
                 <MapPin className="w-4 h-4 text-pink-400" />
@@ -94,31 +96,40 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </motion.div>
 
-          {/* DYNAMIC SYMPOSIUM COUNTDOWN TIMER */}
+          {/* SYMPOSIUM STATUS / CONCLUDED BANNER */}
           <div className="max-w-xl">
             <CountdownTimer />
           </div>
 
-          {/* Action Outline Buttons - ENLARGED */}
+          {/* Action Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-wrap items-center gap-5 pt-3"
+            className="flex flex-wrap items-center gap-4 pt-3"
           >
-            <button
-              onClick={onRegisterClick}
-              className="px-9 py-4 sm:px-10 sm:py-5 bg-white text-black hover:bg-cyan-400 hover:text-black font-extrabold text-xs sm:text-sm uppercase tracking-widest transition-all cursor-pointer flex items-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] rounded-sm"
-            >
-              <span>REGISTER NOW — ₹200</span>
-              <ArrowUpRight className="w-5 h-5" />
-            </button>
+            {onViewBrochureClick && (
+              <button
+                onClick={onViewBrochureClick}
+                className="px-8 py-4 sm:px-9 sm:py-5 bg-cyan-400 text-black hover:bg-cyan-300 font-extrabold text-xs sm:text-sm uppercase tracking-widest transition-all cursor-pointer flex items-center gap-3 shadow-[0_0_30px_rgba(6,182,212,0.35)] rounded-sm whitespace-nowrap shrink-0"
+              >
+                <span>VIEW OFFICIAL BROCHURE</span>
+                <ArrowUpRight className="w-5 h-5" />
+              </button>
+            )}
 
             <button
               onClick={onExploreEventsClick}
-              className="px-9 py-4 sm:px-10 sm:py-5 border-2 border-white/40 hover:border-white text-xs sm:text-sm font-extrabold uppercase tracking-widest text-white hover:bg-white/10 transition-all cursor-pointer rounded-sm"
+              className="px-8 py-4 sm:px-9 sm:py-5 border-2 border-white/40 hover:border-white text-xs sm:text-sm font-extrabold uppercase tracking-widest text-white hover:bg-white/10 transition-all cursor-pointer rounded-sm whitespace-nowrap shrink-0"
             >
               EXPLORE EVENTS (9)
+            </button>
+
+            <button
+              onClick={onRegisterClick}
+              className="px-6 py-4 sm:px-7 sm:py-5 border border-amber-500/40 bg-amber-950/30 hover:bg-amber-900/40 text-xs sm:text-sm font-bold uppercase tracking-widest text-amber-300 transition-all cursor-pointer rounded-sm whitespace-nowrap shrink-0"
+            >
+              EVENT ENDED · PORTAL CLOSED
             </button>
           </motion.div>
 

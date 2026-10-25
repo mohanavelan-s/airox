@@ -288,7 +288,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
   const [copiedPhone, setCopiedPhone] = useState(false);
 
   const handleCopyPhone = () => {
-    navigator.clipboard.writeText('+91 63811 53036');
+    navigator.clipboard.writeText('+91 86677 95829');
     setCopiedPhone(true);
     setTimeout(() => setCopiedPhone(false), 2000);
   };
@@ -736,7 +736,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                 </span>
               </div>
 
-              {/* PROMINENT SPOT REGISTRATION ANNOUNCEMENT BANNER */}
+              {/* PROMINENT EVENT ENDED ANNOUNCEMENT BANNER */}
               <div className="my-5 p-4 rounded-2xl bg-gradient-to-r from-amber-500/15 via-amber-500/10 to-orange-500/15 border border-amber-500/40 backdrop-blur-md shadow-[0_0_25px_rgba(245,158,11,0.15)] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
@@ -745,14 +745,14 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-xs sm:text-sm font-black text-amber-300 uppercase tracking-wide font-sans">
-                        Online Registrations Closed • On-Spot Registration Available
+                        AIROX 2026 Has Officially Ended · Registrations Closed
                       </span>
                       <span className="text-[9px] font-mono font-black uppercase px-2 py-0.5 rounded bg-amber-400 text-black">
-                        VENUE WALK-IN
+                        EVENT CONCLUDED
                       </span>
                     </div>
                     <p className="text-xs text-amber-100/90 leading-relaxed font-sans">
-                      Online portal registrations have closed. All students are invited to register directly at the <strong className="text-white">JJCET Registration Desk</strong> on event day (<strong className="text-white">22 August 2026</strong>, 09:30 AM – 10:30 AM).
+                      AIROX 2026 concluded successfully on <strong className="text-white">22 August 2026</strong> at the <strong className="text-white">JJCET Main Auditorium</strong>. Both online and on-spot registrations are now closed. Thank you to all participants!
                     </p>
                   </div>
                 </div>
@@ -762,7 +762,7 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                   className="px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(245,158,11,0.4)] shrink-0 flex items-center justify-center gap-1.5 cursor-pointer self-start sm:self-center"
                 >
                   <Info className="w-4 h-4" />
-                  <span>Spot Registration Guide</span>
+                  <span>Event Info & Helpline</span>
                 </button>
               </div>
 
@@ -1612,12 +1612,12 @@ export const RegistrationSection: React.FC<RegistrationSectionProps> = ({
                               </button>
                             </div>
                             <code className="block bg-black/40 px-3 py-1.5 rounded-lg text-cyan-300 font-mono text-xs border border-white/10 select-all">
-                              +91 63811 53036
+                              +91 86677 95829
                             </code>
                           </div>
 
                           <p className="text-gray-300 leading-relaxed text-[11px]">
-                            Scan QR code or pay via Google Pay, PhonePe, Paytm, BHIM to <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">mohanavelan2006-1@oksbi</code> or <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">+91 63811 53036</code>.
+                            Scan QR code or pay via Google Pay, PhonePe, Paytm, BHIM to <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">mohanavelan2006-1@oksbi</code> or <code className="bg-white/10 px-1.5 py-0.5 rounded text-cyan-300 font-mono">+91 86677 95829</code>.
                           </p>
                         </div>
                       </div>

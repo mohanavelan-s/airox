@@ -33,17 +33,23 @@ export const BrochureSection: React.FC = () => {
   const [touchDistance, setTouchDistance] = useState<number | null>(null);
 
   const fallbackSources = [
+    '/assets/aistudio/Brohure_af217ab1.png',
     '/brochure.png',
     '/assets/airox-2026-official-brochure.png',
-    '/images/airox-2026-official-poster.png',
-    '/brochures/AIROX-2026-Official-Brochure-preview.png',
-    '/brochure.jpg',
+    '/airox-official-brochure.svg',
+    '/assets/aistudio/image_604f33b2.png',
   ];
 
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
-  const [isImgLoaded, setIsImgLoaded] = useState(false);
-  const brochureImageUrl = fallbackSources[currentImgIndex] || '/brochure.png';
-  const fallbackImageUrl = '/assets/airox-2026-official-brochure.png';
+  const [isImgLoaded, setIsImgLoaded] = useState(true);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const brochureImageUrl = fallbackSources[currentImgIndex] || '/assets/aistudio/Brohure_af217ab1.png';
+
+  useEffect(() => {
+    if (imgRef.current && imgRef.current.complete) {
+      setIsImgLoaded(true);
+    }
+  }, [brochureImageUrl]);
 
   const handleImageError = () => {
     if (currentImgIndex < fallbackSources.length - 1) {
@@ -188,26 +194,36 @@ export const BrochureSection: React.FC = () => {
     lastTapRef.current = now;
   };
 
-  // Direct Download of the original PNG file
+  // Direct high-resolution PNG download of the official brochure
   const handleDownloadBrochure = async () => {
     try {
       setIsDownloading(true);
-      const response = await fetch(brochureImageUrl);
-      const blob = await response.blob();
-      const downloadUrl = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = downloadUrl;
-      link.download = 'AIROX-2026-Official-Brochure.png';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(downloadUrl);
+      const response = await fetch('/assets/aistudio/Brohure_af217ab1.png');
+      if (response.ok) {
+        const blob = await response.blob();
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.download = 'AIROX-2026-Official-Brochure.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(downloadUrl);
+      } else {
+        const link = document.createElement('a');
+        link.href = brochureImageUrl;
+        link.download = 'AIROX-2026-Official-Brochure.png';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
       setIsDownloading(false);
       setDownloadSuccess(true);
       setTimeout(() => setDownloadSuccess(false), 3000);
     } catch (err) {
-      console.error('Error downloading brochure:', err);
-      // Fallback: direct anchor download
+      console.error('Error downloading brochure, falling back to direct link:', err);
       const link = document.createElement('a');
       link.href = brochureImageUrl;
       link.download = 'AIROX-2026-Official-Brochure.png';
@@ -216,6 +232,8 @@ export const BrochureSection: React.FC = () => {
       link.click();
       document.body.removeChild(link);
       setIsDownloading(false);
+      setDownloadSuccess(true);
+      setTimeout(() => setDownloadSuccess(false), 3000);
     }
   };
 
@@ -450,7 +468,7 @@ export const BrochureSection: React.FC = () => {
             className="relative cursor-pointer overflow-hidden min-h-[260px] sm:min-h-[420px] aspect-[16/11.3] bg-[#020612] flex items-center justify-center p-2 sm:p-4"
           >
             {!isImgLoaded && (
-              <div className="absolute inset-0 flex items-center justify-center bg-[#020612] z-10">
+              <div className="absolute inset-0 flex items-center justify-center bg-[#020612]/80 z-10 pointer-events-none">
                 <div className="flex flex-col items-center gap-3">
                   <div className="w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
                   <span className="text-xs font-mono text-cyan-300">Loading AIROX 2026 Poster...</span>
@@ -458,14 +476,12 @@ export const BrochureSection: React.FC = () => {
               </div>
             )}
             <img
+              ref={imgRef}
               src={brochureImageUrl}
               alt="AIROX 2026 Official Brochure and Event Schedule Flyer"
               onLoad={() => setIsImgLoaded(true)}
               onError={handleImageError}
-              className={`w-full h-full object-contain rounded-lg shadow-2xl transition-all duration-700 group-hover:scale-[1.01] ${
-                isImgLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              referrerPolicy="no-referrer"
+              className="w-full h-full object-contain rounded-lg shadow-2xl transition-all duration-700 group-hover:scale-[1.01] opacity-100"
             />
 
             {/* Hover Floating Overlay */}
